@@ -3,53 +3,625 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#07182d" />
-  <meta name="description" content="ScambioPro — progetto digitale in fase di sviluppo." />
-  <title>ScambioPro — Progetto in sviluppo</title>
+  <meta name="theme-color" content="#0b1f3a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="ScambioPro: offri ciò che sai fare, ottieni crediti SP e usali per servizi, professionisti e soggiorni." />
+  <title>ScambioPro — Demo V6.5 Home Diretta</title>
   <style>
-    :root{--bg:#07182d;--text:#f7fbff;--muted:#a9bfd3;--blue:#3baeff;--mint:#5de2aa;--amber:#ffd429;--orange:#ff8426}
+    :root{
+      --bg:#07111f;--bg2:#0a1727;--panel:#0f1f33;--panel2:#142a43;--line:#223d5b;
+      --text:#f7fbff;--muted:#92a8c0;--mint:#64e6b5;--blue:#7ba8ff;--amber:#ffd078;
+      --red:#ff9797;--shadow:0 22px 60px rgba(0,0,0,.34);--radius:22px;
+    }
     *{box-sizing:border-box}
-    html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
-    body{min-height:100vh;background:radial-gradient(circle at 12% 0,rgba(255,212,41,.18),transparent 26%),radial-gradient(circle at 100% 14%,rgba(255,116,23,.16),transparent 24%),linear-gradient(155deg,#07182d,#0b2442 58%,#0a3150);display:flex;align-items:center;justify-content:center;padding:24px}
-    .wrap{width:min(100%,900px)}
-    .top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
-    .brand{display:flex;align-items:center;gap:12px}.mark{width:46px;height:46px;border-radius:15px;background:linear-gradient(145deg,#0f72e8,#31a9ff);display:grid;place-items:center;font-weight:950;color:#fff;box-shadow:0 10px 24px rgba(22,139,242,.24)}
-    .brand strong{display:block;font-size:22px;letter-spacing:-.03em}.brand strong span{color:var(--orange)}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.09em;text-transform:uppercase;margin-top:2px}
-    .badge{border:1px solid rgba(255,212,41,.35);background:rgba(255,212,41,.12);color:#ffe77b;border-radius:999px;padding:8px 11px;font-size:11px;font-weight:800}
-    .hero{border:1px solid rgba(255,255,255,.12);background:linear-gradient(135deg,rgba(17,47,86,.95),rgba(13,57,82,.96));border-radius:30px;padding:44px;box-shadow:0 28px 70px rgba(0,0,0,.30);position:relative;overflow:hidden}
-    .hero:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-130px;top:-130px;border:1px solid rgba(255,255,255,.09)}
-    .eyebrow{display:inline-block;color:#ffe36a;background:rgba(255,212,41,.11);border:1px solid rgba(255,212,41,.18);padding:7px 10px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.07em;text-transform:uppercase}
-    h1{font-size:clamp(38px,7vw,72px);line-height:.98;letter-spacing:-.055em;margin:18px 0 20px;max-width:760px}h1 span{color:var(--orange)}
-    .lead{font-size:clamp(16px,2.1vw,20px);line-height:1.6;color:#d4e2ee;max-width:700px;margin:0}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
-    .card{border:1px solid rgba(255,255,255,.12);background:rgba(7,24,45,.58);border-radius:19px;padding:18px}.icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:rgba(59,174,255,.14);color:var(--blue);font-weight:950;margin-bottom:12px}.card:nth-child(2) .icon{background:rgba(93,226,170,.13);color:var(--mint)}.card:nth-child(3) .icon{background:rgba(255,212,41,.13);color:var(--amber)}
-    .card strong{display:block;font-size:14px;margin-bottom:5px}.card p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
-    .note{margin-top:24px;padding:15px 17px;border-radius:16px;border:1px solid rgba(93,226,170,.20);background:rgba(93,226,170,.08);color:#caefe0;font-size:13px;line-height:1.55}
-    .footer{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-top:20px;color:#8ea7bd;font-size:11px}.footer b{color:#c9d9e6}
-    @media(max-width:700px){body{padding:14px;align-items:flex-start}.top{margin:8px 2px 18px}.badge{display:none}.hero{padding:27px 20px;border-radius:24px}.grid{grid-template-columns:1fr}.footer{display:block;line-height:1.7}h1{font-size:46px}}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% -15%,#153b48 0,transparent 34%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    button,input,select{font:inherit}
+    button{cursor:pointer}
+    .app{width:min(100%,720px);min-height:100vh;margin:0 auto;background:linear-gradient(180deg,rgba(10,23,39,.94),rgba(6,15,27,.98));padding-bottom:92px;box-shadow:0 0 80px rgba(0,0,0,.18)}
+    .topbar{position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:15px 18px 12px;background:rgba(7,17,31,.86);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.05)}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand-mark{width:40px;height:40px;border-radius:14px;display:grid;place-items:center;font-weight:950;color:#04120d;background:linear-gradient(135deg,var(--blue),var(--mint));box-shadow:0 10px 28px rgba(100,230,181,.18)}
+    .brand h1{margin:0;font-size:20px;letter-spacing:-.02em}.brand small{display:block;margin-top:2px;color:var(--muted);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+    .demo-pill{border:1px solid #31506d;background:#10243a;color:#cfe6ff;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:800;letter-spacing:.05em}
+    main{padding:16px 16px 34px}
+    .hero{position:relative;overflow:hidden;border:1px solid #2b5b63;border-radius:28px;padding:24px;background:radial-gradient(circle at 90% 10%,rgba(100,230,181,.22),transparent 34%),linear-gradient(135deg,#14284a,#143b37);box-shadow:var(--shadow)}
+    .hero:after{content:"";position:absolute;width:170px;height:170px;border:1px solid rgba(255,255,255,.08);border-radius:50%;right:-95px;bottom:-95px}
+    .eyebrow{font-size:11px;color:var(--mint);font-weight:900;letter-spacing:.11em;text-transform:uppercase}
+    .hero h2{font-size:31px;line-height:1.02;letter-spacing:-.04em;margin:8px 0 12px;max-width:560px}
+    .hero p{margin:0 0 18px;max-width:560px;color:#c7d6e6;line-height:1.55;font-size:14px}
+    .hero-actions,.row{display:flex;gap:9px;flex-wrap:wrap}
+    .btn{border:0;border-radius:14px;padding:12px 15px;background:var(--mint);color:#06130f;font-weight:850;box-shadow:none}
+    .btn.secondary{background:#13283f;border:1px solid #2a4864;color:var(--text)}
+    .btn.blue{background:var(--blue);color:#06111f}.btn.amber{background:var(--amber);color:#201608}.btn.danger{background:transparent;color:var(--red);border:1px solid #603942}
+    .btn.small{font-size:12px;padding:9px 11px;border-radius:11px}.btn.full{width:100%}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin:24px 2px 11px}
+    .section-head h3{margin:0;font-size:18px;letter-spacing:-.015em}.section-head span{color:var(--muted);font-size:11px;text-align:right}
+    .card{border:1px solid var(--line);background:linear-gradient(180deg,#112239,#0d1d31);border-radius:20px;padding:16px;margin-bottom:10px}
+    .card.highlight{border-color:#327462;background:linear-gradient(180deg,#142c2b,#0e2031)}
+    .card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.card h4{margin:0 0 5px;font-size:15px}.meta{font-size:12px;line-height:1.45;color:var(--muted)}
+    .balance-card{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;align-items:center}
+    .balance{font-size:42px;font-weight:950;letter-spacing:-.045em;line-height:1}.balance small{font-size:18px;color:var(--mint)}
+    .credit-cap{text-align:right}.credit-cap strong{display:block;font-size:18px}.credit-cap small{color:var(--muted);font-size:11px}
+    .progress{height:8px;border-radius:999px;overflow:hidden;background:#1b314a;margin-top:8px}.progress>span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--blue),var(--mint))}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.mini-stat{padding:13px;border-radius:17px;background:#0c1b2d;border:1px solid #203b57}.mini-stat strong{display:block;font-size:20px}.mini-stat small{color:var(--muted);font-size:10px}
+    .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.how{padding:15px;border-radius:18px;background:#0e1d30;border:1px solid var(--line)}.how-num{width:30px;height:30px;display:grid;place-items:center;border-radius:10px;background:#183b4d;color:var(--mint);font-weight:900;font-size:12px}.how h4{margin:11px 0 5px;font-size:14px}.how p{margin:0;color:var(--muted);font-size:11px;line-height:1.48}
+    .cycle{position:relative;padding:16px;border:1px solid #2a5b66;border-radius:22px;background:radial-gradient(circle at 50% 50%,rgba(100,230,181,.08),transparent 55%),#0d1c2f}
+    .cycle-title{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px}.cycle-title strong{font-size:13px}.cycle-badge{padding:6px 9px;border-radius:999px;background:#153c33;color:#abefd8;font-size:10px;font-weight:850}
+    .cycle-node{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px dashed #28415e}.cycle-node:last-of-type{border-bottom:0}.avatar{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:#1d3853;color:#d8eaff;font-weight:900;font-size:12px}.cycle-node strong{font-size:12px;display:block}.cycle-node span{font-size:10px;color:var(--muted)}.cycle-value{font-size:12px;font-weight:900;color:var(--mint)}
+    .cycle-result{margin-top:12px;padding:11px 12px;background:#102940;border-radius:13px;color:#d7e9f8;font-size:11px;line-height:1.5}
+    .legal-note{margin-top:12px;color:#8197b0;font-size:10px;line-height:1.5}
+    .search{display:grid;grid-template-columns:1fr auto;gap:8px;margin-bottom:11px}.input{width:100%;background:#091827;color:var(--text);border:1px solid var(--line);border-radius:13px;padding:12px 12px;outline:none}.input:focus{border-color:var(--blue)}
+    .chips{display:flex;gap:7px;overflow:auto;padding:1px 0 10px;scrollbar-width:none}.chip{white-space:nowrap;border:1px solid #27445f;background:#10223a;color:#aec1d5;border-radius:999px;padding:7px 10px;font-size:10px}.chip.active{background:#173b34;border-color:#327a65;color:#c7f5e5}
+    .offer{display:grid;grid-template-columns:44px 1fr auto;gap:11px;align-items:start}.offer-icon{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:#18304d;font-size:20px}.offer-price{font-size:16px;font-weight:950;white-space:nowrap}.offer-price small{font-size:10px;color:var(--mint)}
+    .pill{display:inline-block;margin:7px 5px 0 0;padding:5px 8px;border-radius:999px;background:#1c3049;color:#c4d7e9;font-size:9px}.pill.green{background:#173a31;color:#a9ebd3}.pill.amber{background:#41361e;color:#ffe1a2}
+    .tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#091828;border:1px solid var(--line);padding:5px;border-radius:13px;margin-bottom:12px}.tab{border:0;background:transparent;color:var(--muted);padding:9px;border-radius:9px;font-weight:800}.tab.active{background:#162a42;color:var(--text)}
+    .match-card{border:1px solid #2a536d;background:linear-gradient(180deg,#10283c,#0d1d31);border-radius:20px;padding:15px;margin-bottom:10px}.match-route{margin:12px 0;padding:11px;border-radius:13px;background:#091827;font-size:11px;line-height:1.65;color:#d7e6f5}.match-route b{color:var(--mint)}
+    .activity{display:grid;grid-template-columns:1fr auto;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.activity:last-child{border-bottom:0}.activity strong{font-size:12px}.activity span{font-size:10px;color:var(--muted);display:block;margin-top:3px}.activity-value{font-size:12px;font-weight:900;text-align:right}.positive{color:var(--mint)}.negative{color:var(--red)}
+    .profile{display:grid;grid-template-columns:78px 1fr;gap:14px;align-items:center}.profile-avatar{width:76px;height:76px;border-radius:23px;display:grid;place-items:center;background:linear-gradient(135deg,#234a6c,#1d5447);color:var(--mint);font-weight:950;font-size:22px}.profile h3{margin:0 0 4px;font-size:18px}
+    .notice{padding:11px 12px;border-radius:12px;background:#0e2137;border-left:3px solid var(--blue);color:#b9cade;font-size:11px;line-height:1.5}.notice.amber{border-left-color:var(--amber)}
+    .home-hero{overflow:hidden;padding:0}.home-photo{height:150px;position:relative;display:flex;align-items:flex-end;padding:14px;background:linear-gradient(135deg,#365c6c,#2e7f7a)}.home-photo.lake{background:linear-gradient(135deg,#1e4a68,#368f86)}.home-photo.sea{background:linear-gradient(135deg,#216b87,#75a78a)}.home-photo.mountain{background:linear-gradient(135deg,#4f5966,#7f8d76)}.home-photo.hill{background:linear-gradient(135deg,#6e5945,#8d825f)}.home-photo.city{background:linear-gradient(135deg,#55456f,#315e76)}.home-photo:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 82% 20%,rgba(255,255,255,.25),transparent 19%),linear-gradient(0deg,rgba(5,16,27,.55),transparent 58%)}.home-photo-label{position:relative;z-index:1}.home-photo-label strong{display:block;font-size:20px}.home-photo-label span{font-size:10px;color:#e3f1f8}.home-body{padding:15px}.home-price{font-size:20px;font-weight:950}.home-price small{font-size:10px;color:var(--mint)}.home-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.exchange-example{display:grid;grid-template-columns:1fr 36px 1fr;gap:8px;align-items:center}.exchange-side{padding:13px;border-radius:17px;background:#0c1c2f;border:1px solid var(--line);min-height:104px}.exchange-side strong{display:block;font-size:13px;margin:6px 0 3px}.exchange-arrow{display:grid;place-items:center;color:var(--mint);font-size:24px}.stay-chip{display:inline-block;padding:5px 8px;border-radius:999px;background:#183c34;color:#c4f4e4;font-size:9px;font-weight:800}.house-summary{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start}
+    .bottom-nav{position:fixed;z-index:40;left:50%;bottom:0;transform:translateX(-50%);width:min(100%,720px);display:grid;grid-template-columns:repeat(5,1fr);padding:7px 4px calc(8px + env(safe-area-inset-bottom));background:rgba(6,15,27,.96);backdrop-filter:blur(18px);border-top:1px solid var(--line)}
+    .nav{border:0;background:transparent;color:#7189a3;padding:5px 0}.nav .ico{display:block;font-size:18px;line-height:22px}.nav small{font-size:8px}.nav.active{color:var(--mint)}
+    .modal-wrap{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.7);display:flex;align-items:flex-end;justify-content:center;padding:12px}.modal{width:min(100%,650px);max-height:90vh;overflow:auto;background:#0e1d31;border:1px solid #2a4966;border-radius:24px;padding:16px;box-shadow:var(--shadow)}.modal-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px}.modal-head h3{margin:0;font-size:18px}.close{width:38px;height:38px;border-radius:12px;border:1px solid var(--line);background:#14283f;color:var(--text)}
+    .onboarding{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:18px;background:radial-gradient(circle at 50% 0,#143f43 0,transparent 38%),#06101d}.onboard-card{width:min(100%,500px);padding:24px;border-radius:28px;border:1px solid #2d5865;background:#0d1d31;box-shadow:var(--shadow)}.onboard-logo{width:64px;height:64px;border-radius:20px;background:linear-gradient(135deg,var(--blue),var(--mint));display:grid;place-items:center;color:#05120e;font-weight:950;font-size:20px}.onboard-card h2{margin:14px 0 8px;font-size:29px;letter-spacing:-.035em}.onboard-card p{color:#afc1d5;line-height:1.55;font-size:13px}.onboard-list{margin:16px 0;display:grid;gap:8px}.onboard-item{padding:11px 12px;border-radius:13px;background:#10243a;border:1px solid #233f5b;font-size:11px;color:#d5e2ef}
+    .toast{position:fixed;z-index:300;left:50%;bottom:94px;transform:translateX(-50%);width:min(92%,620px);padding:12px 14px;border-radius:14px;background:#17304b;border:1px solid #3b607e;color:#ecf6ff;box-shadow:var(--shadow);font-size:12px}
+
+    .action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .action-card{border:1px solid #294965;background:linear-gradient(180deg,#132a43,#0e1e32);border-radius:20px;padding:16px;text-align:left;color:var(--text);min-height:138px}
+    .action-card:hover{border-color:#3c6c87}.action-icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:#193850;font-size:21px;margin-bottom:14px}
+    .action-card strong{display:block;font-size:16px;margin-bottom:5px}.action-card small{display:block;color:var(--muted);font-size:11px;line-height:1.45}
+    .simple-flow{display:grid;gap:8px}.flow-step{display:grid;grid-template-columns:38px 1fr auto;gap:10px;align-items:center;padding:12px;border:1px solid #25435e;background:#0c1b2e;border-radius:16px}
+    .flow-icon{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:#17344d;font-size:18px}.flow-step strong{font-size:12px;display:block}.flow-step span{font-size:10px;color:var(--muted)}.flow-value{font-size:12px;font-weight:900;color:var(--mint);white-space:nowrap}
+    .key-message{margin-top:10px;padding:14px;border-radius:17px;background:linear-gradient(135deg,#17362f,#10243a);border:1px solid #34725f;font-size:14px;line-height:1.5}.key-message b{color:var(--mint)}
+    .simple-tabs{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:12px 0}.simple-choice{padding:13px;border-radius:14px;border:1px solid #29465f;background:#102237;color:var(--text);text-align:left}.simple-choice strong{display:block;font-size:13px}.simple-choice span{display:block;margin-top:3px;color:var(--muted);font-size:10px;line-height:1.4}
+    .sp-help{display:flex;gap:10px;align-items:flex-start;padding:13px;border-radius:16px;border:1px solid #315472;background:#10263d}.sp-bubble{flex:0 0 auto;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--mint);color:#07140f;font-weight:950}.sp-help strong{font-size:13px}.sp-help p{margin:3px 0 0;color:var(--muted);font-size:11px;line-height:1.45}
+    .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.trust-item{padding:12px;border-radius:15px;background:#0d1c2f;border:1px solid var(--line);font-size:10px;color:#c9d8e7;line-height:1.4}.trust-item b{display:block;color:var(--text);font-size:11px;margin-bottom:3px}
+    details.advanced{border:1px solid var(--line);border-radius:16px;background:#0c1a2b;padding:12px 14px;margin-top:10px}details.advanced summary{cursor:pointer;font-size:11px;font-weight:800;color:#c7d7e7}details.advanced .meta{margin-top:10px}
+
+    .hidden{display:none!important}
+    @media(max-width:520px){.hero h2{font-size:28px}.grid-3,.how-grid,.home-grid,.action-grid,.trust-grid{grid-template-columns:1fr}.balance-card{grid-template-columns:1fr}.credit-cap{text-align:left}.offer{grid-template-columns:40px 1fr}.offer-price{grid-column:2}.section-head{align-items:flex-start}.section-head span{text-align:left}.home-photo{height:140px}.exchange-example{grid-template-columns:1fr 28px 1fr}.exchange-side{padding:10px}}
+
+    /* ===== SCAMBIOPRO V6 · POP COLOR SYSTEM ===== */
+    :root{
+      --bg:#fff8dc;--bg2:#eff9ff;--panel:#ffffff;--panel2:#f4f8ff;--line:#dfe9f3;
+      --text:#0b2a52;--muted:#61738a;--mint:#35c76f;--blue:#168bf2;--amber:#ffd429;
+      --orange:#ff7417;--red:#f04444;--shadow:0 12px 30px rgba(17,59,104,.12);--radius:22px;
+    }
+    body{background:linear-gradient(155deg,#ffd72b 0 26%,#ff8b25 26% 31%,#41bfff 31% 100%);color:var(--text)}
+    .app{background:#fffdf8;box-shadow:0 0 70px rgba(17,59,104,.22);border-left:1px solid rgba(255,255,255,.5);border-right:1px solid rgba(255,255,255,.5)}
+    .topbar{background:rgba(255,255,255,.96);border-bottom:1px solid #e7eef5;box-shadow:0 4px 18px rgba(26,75,120,.06)}
+    .brand-mark{color:#fff;background:linear-gradient(145deg,#0f72e8,#31a9ff);box-shadow:0 8px 18px rgba(22,139,242,.24)}
+    .brand h1{color:#0b2a52;font-weight:950}.brand h1 span{color:var(--orange)}
+    .brand small{color:#738298}.demo-pill{background:#fff3b0;color:#7a5500;border-color:#ffd429}
+    main{background:#fffdf8}
+
+    .hero{overflow:visible;border:0;background:#fffdf8;box-shadow:none;padding:22px 14px 10px;position:relative}
+    .hero:after{content:"☀";width:64px;height:64px;right:10px;bottom:auto;top:16px;border:0;border-radius:50%;background:#ffd429;color:#7b5600;display:grid;place-items:center;font-size:30px;box-shadow:0 8px 18px rgba(255,180,0,.18);opacity:1}
+    .hero .eyebrow{color:#168bf2;background:#e7f4ff;display:inline-block;padding:6px 9px;border-radius:999px;letter-spacing:.05em}
+    .hero h2{color:#0b2a52;max-width:500px;padding-right:58px;font-size:34px;line-height:1.03}
+    .hero h2 .accent-word{color:var(--orange)}
+    .hero p{color:#596b80;font-size:14px;max-width:550px}.hero p b{color:#0b2a52!important}
+
+    .section-head h3{color:#0b2a52;font-size:19px}.section-head span{color:#748499}
+    .card{background:#fff;border-color:#e4ebf2;box-shadow:0 8px 24px rgba(18,58,101,.08)}
+    .card.highlight{background:#fff8df;border-color:#ffe49a}
+    .meta{color:#66788d}.legal-note{color:#7d8794}
+
+    .action-grid{grid-template-columns:1fr;gap:11px}
+    .action-card{position:relative;display:grid;grid-template-columns:62px 1fr 34px;column-gap:14px;align-items:center;min-height:104px;padding:16px 16px;border:0;border-radius:22px;color:#fff;box-shadow:0 10px 23px rgba(27,68,111,.15);text-align:left}
+    .action-card:nth-child(1){background:linear-gradient(135deg,#168bf2,#22a4f5)}
+    .action-card:nth-child(2){background:linear-gradient(135deg,#28b85f,#43ce75)}
+    .action-card:nth-child(3){background:linear-gradient(135deg,#ff7417,#ff942c)}
+    .action-card:after{content:"›";grid-column:3;grid-row:1 / span 2;width:34px;height:34px;border-radius:50%;background:#fff;color:#176bb5;display:grid;place-items:center;font-size:28px;font-weight:800}
+    .action-card:nth-child(2):after{color:#24a354}.action-card:nth-child(3):after{color:#e65b00}
+    .action-icon{grid-column:1;grid-row:1 / span 2;width:58px;height:58px;border-radius:50%;background:#fff;color:#0b2a52;font-size:27px;margin:0;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    .action-card strong{grid-column:2;font-size:19px;margin:0}.action-card small{grid-column:2;color:rgba(255,255,255,.9);font-size:11px;line-height:1.4;margin-top:2px}
+
+    .simple-flow{gap:10px}.flow-step{background:#fff;border-color:#e8edf2;border-radius:18px;box-shadow:0 5px 16px rgba(24,65,110,.06)}
+    .flow-step:nth-child(1){border-left:5px solid #35c76f}.flow-step:nth-child(2){border-left:5px solid #ff7417}.flow-step:nth-child(3){border-left:5px solid #ffd429}
+    .flow-icon{background:#eaf5ff;color:#0b2a52}.flow-step:nth-child(1) .flow-icon{background:#e8f9ee}.flow-step:nth-child(2) .flow-icon{background:#fff1e7}.flow-step:nth-child(3) .flow-icon{background:#fff5b8;color:#7a5500}
+    .flow-step strong{color:#0b2a52}.flow-step span{color:#6a7a8e}.flow-value{color:#168b48}.flow-step:nth-child(2) .flow-value{color:#f04e2b}
+    .key-message{background:#fff3b8;border:1px solid #ffe17a;color:#5a4700}
+
+    .sp-help{background:#eef7ff;border-color:#cce7ff}.sp-bubble{background:linear-gradient(145deg,#ffd429,#ffac00);color:#704700;box-shadow:0 6px 14px rgba(255,174,0,.22)}
+    .sp-help p{color:#62758a}
+    .simple-choice{background:#fff;border-color:#dce7f1;color:#0b2a52;box-shadow:0 5px 16px rgba(24,65,110,.05)}
+    .simple-choice.active{background:#eaf5ff;border-color:#168bf2;box-shadow:0 0 0 2px rgba(22,139,242,.10)}
+    .simple-choice span{color:#64778b}
+    .trust-item{background:#fff;border-color:#e4ebf2;color:#617287;box-shadow:0 5px 14px rgba(24,65,110,.05)}.trust-item b{color:#0b2a52}
+
+    .btn{background:#168bf2;color:#fff;box-shadow:0 7px 15px rgba(22,139,242,.17)}
+    .btn.secondary{background:#fff;border:1px solid #cfdce9;color:#145b9c;box-shadow:none}.btn.blue{background:#168bf2;color:#fff}.btn.amber{background:#ffd429;color:#694800}.btn.danger{background:#fff;color:#dc3f3f;border-color:#f2b7b7}
+    .input{background:#fff;color:#0b2a52;border-color:#d7e3ee}.input:focus{border-color:#168bf2;box-shadow:0 0 0 3px rgba(22,139,242,.10)}
+    .chip{background:#fff;color:#587087;border-color:#d6e2ec}.chip.active{background:#168bf2;color:#fff;border-color:#168bf2}
+    .offer-icon{background:#eaf5ff}.offer-price{color:#0b2a52}.offer-price small{color:#168bf2}
+    .pill{background:#eef3f8;color:#526a80}.pill.green{background:#e8f9ee;color:#208f4b}.pill.amber{background:#fff3b8;color:#725000}
+
+    .home-hero{background:#fff;border-color:#e3eaf1;box-shadow:0 9px 24px rgba(18,58,101,.08)}
+    .home-photo{height:158px;color:#fff;overflow:hidden}
+    .home-photo:before{position:absolute;z-index:1;right:18px;top:17px;font-size:48px;filter:drop-shadow(0 5px 7px rgba(0,0,0,.15))}
+    .home-photo.sea{background:linear-gradient(145deg,#1aa5ef 0 48%,#40cfa5 48% 64%,#ffe477 64% 100%)}.home-photo.sea:before{content:"🏖️"}
+    .home-photo.mountain{background:linear-gradient(145deg,#48b6ff,#75d1e8 47%,#54a968 48%,#2f7346 100%)}.home-photo.mountain:before{content:"🏔️"}
+    .home-photo.hill{background:linear-gradient(145deg,#75c9f4,#ffe36c 52%,#72bb55 53%,#4b923f 100%)}.home-photo.hill:before{content:"🌻"}
+    .home-photo.city{background:linear-gradient(145deg,#8bbdff,#e4d5ff 46%,#ff9b72 47%,#d46452 100%)}.home-photo.city:before{content:"🏙️"}
+    .home-photo.lake{background:linear-gradient(145deg,#49b7ff,#90d8f4 47%,#2a9bc0 48%,#327b5a 100%)}.home-photo.lake:before{content:"⛵"}
+    .home-photo:after{background:linear-gradient(0deg,rgba(10,42,74,.62),transparent 62%)}
+    .home-photo-label span{color:#f2fbff}.home-body{background:#fff}.home-price{color:#0b2a52}.home-price small{color:#168bf2}.stay-chip{background:#fff3b8;color:#775300}
+    .exchange-side{background:#fff;border-color:#dce7f1}.exchange-arrow{color:#2bbf68}
+
+    .tabs{background:#f2f6fa;border-color:#dfe8f0}.tab{color:#66788d}.tab.active{background:#168bf2;color:#fff;box-shadow:0 5px 12px rgba(22,139,242,.18)}
+    .match-card{background:#fff;border-color:#d8e5f0;box-shadow:0 8px 22px rgba(18,58,101,.07)}.match-route{background:#f1f7fd;color:#415c74}.match-route b{color:#168bf2}.cycle-badge{background:#e8f9ee;color:#228f4c}
+    .cycle{background:#fff;border-color:#dce8f2}.cycle-node{border-bottom-color:#e2eaf2}.avatar{background:#eaf5ff;color:#145b9c}.cycle-node span{color:#6b7b8e}.cycle-value{color:#238f4d}.cycle-result{background:#eef7ff;color:#425c74}
+    .balance{color:#0b2a52}.balance small{color:#168bf2}.progress{background:#e7eef5}.progress>span{background:linear-gradient(90deg,#168bf2,#35c76f)}
+    .activity{border-bottom-color:#e5ecf2}.activity strong{color:#0b2a52}.activity span{color:#738399}.positive{color:#25a254}.negative{color:#ef4d45}
+    .profile-avatar{background:linear-gradient(135deg,#168bf2,#35c76f);color:#fff}.profile h3{color:#0b2a52}.notice{background:#eef7ff;color:#536a7e;border-left-color:#168bf2}.notice.amber{background:#fff7d6;border-left-color:#ffd429;color:#675b31}
+
+    .bottom-nav{background:rgba(255,255,255,.98);border-top-color:#dce5ee;box-shadow:0 -7px 24px rgba(22,62,104,.08)}
+    .nav{color:#65778b}.nav.active{color:#168bf2}.nav .ico{font-weight:800}.nav[data-screen="wallet"] .ico{color:#b47d00;background:#ffd429;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;margin:0 auto;font-size:10px}
+
+    .modal-wrap{background:rgba(25,59,91,.45)}.modal{background:#fff;border-color:#dbe6ef;color:#0b2a52}.close{background:#f3f7fa;color:#0b2a52;border-color:#dce7ef}
+    .onboarding{background:linear-gradient(160deg,#ffd429 0 52%,#37baff 52% 100%)}
+    .onboard-card{background:#fff;border:0;color:#0b2a52;box-shadow:0 24px 60px rgba(18,58,101,.22)}
+    .onboard-logo{background:linear-gradient(145deg,#168bf2,#29a6ff);color:#fff}.onboard-card h2{color:#0b2a52}.onboard-card p{color:#61748a}.onboard-item{background:#f6f9fc;border-color:#e0e8f0;color:#465d73}.onboard-card .eyebrow{color:#ff7417}
+    .toast{background:#0b2a52;border-color:#0b2a52;color:#fff}
+
+    @media(max-width:520px){
+      body{background:#fffdf8}.app{box-shadow:none;border:0}.hero h2{font-size:31px}.hero:after{right:2px;top:18px;width:56px;height:56px;font-size:26px}.hero{padding-left:6px;padding-right:6px}.action-card{grid-template-columns:58px 1fr 32px;padding:14px}.action-icon{width:54px;height:54px}.action-card strong{font-size:18px}.simple-tabs{grid-template-columns:1fr 1fr}.home-grid{grid-template-columns:1fr}.trust-grid{grid-template-columns:1fr 1fr 1fr}.home-photo{height:170px}
+    }
+    @media(max-width:390px){.simple-tabs,.trust-grid{grid-template-columns:1fr}.hero h2{font-size:29px;padding-right:48px}.action-card small{font-size:10px}}
+
+    /* ===== SCAMBIOPRO V6.1 · POP NIGHT ===== */
+    :root{
+      --night:#0b1f3a;--night2:#102b4d;--night3:#07182d;
+      --paper:#ffffff;--paper2:#f6f9fd;--ink:#0b2a52;
+    }
+    body{
+      background:
+        radial-gradient(circle at 10% 0%,rgba(255,212,41,.22),transparent 24%),
+        radial-gradient(circle at 100% 14%,rgba(255,116,23,.18),transparent 22%),
+        linear-gradient(155deg,#07182d,#0b2442 58%,#0a3150);
+      color:var(--text);
+    }
+    .app{background:var(--night);border-left:1px solid rgba(255,255,255,.04);border-right:1px solid rgba(255,255,255,.04);box-shadow:0 0 85px rgba(0,0,0,.42)}
+    .topbar{background:rgba(6,20,39,.97);border-bottom-color:rgba(255,255,255,.08);box-shadow:0 8px 24px rgba(0,0,0,.24)}
+    .brand h1{color:#fff}.brand small{color:#a8bdd3}.demo-pill{background:#ffd429;color:#634600;border-color:#ffd429}
+    main{background:linear-gradient(180deg,#0a1d36,#091b33 68%,#07182d)}
+
+    .hero{background:linear-gradient(135deg,#112f56,#0d3952);border:1px solid rgba(72,178,255,.22);box-shadow:0 14px 32px rgba(0,0,0,.22);padding:26px 20px 20px;border-radius:26px;overflow:hidden}
+    .hero:after{right:18px;top:18px;box-shadow:0 8px 22px rgba(255,180,0,.20)}
+    .hero .eyebrow{color:#ffe36a;background:rgba(255,212,41,.12);border:1px solid rgba(255,212,41,.20)}
+    .hero h2{color:#fff}.hero h2 .accent-word{color:#ff8a2a}.hero p{color:#d5e3f0}.hero p b{color:#fff!important}
+
+    .section-head h3{color:#fff}.section-head span{color:#9fb4c8}.legal-note{color:#9db0c1}
+    .card,.home-hero,.simple-choice,.trust-item,.flow-step,.exchange-side{background:#fff;border-color:#dbe6ef;box-shadow:0 9px 24px rgba(0,0,0,.14)}
+    .card.highlight{background:#fff6d9;border-color:#ffd96a}
+    .meta{color:#66788d}
+
+    .action-card{box-shadow:0 12px 26px rgba(0,0,0,.22)}
+    .action-card:nth-child(1){background:linear-gradient(135deg,#087ee8,#24a9f6)}
+    .action-card:nth-child(2){background:linear-gradient(135deg,#1fa956,#48ce78)}
+    .action-card:nth-child(3){background:linear-gradient(135deg,#f8660d,#ff962f)}
+
+    .simple-flow{padding:2px 0}.key-message{background:#ffd94f;border-color:#ffd429;color:#533d00;box-shadow:0 8px 20px rgba(0,0,0,.12)}
+    .sp-help{background:#eef7ff;border-color:#bfdfff;box-shadow:0 8px 22px rgba(0,0,0,.10)}
+    .simple-choice.active{background:#e8f4ff;border-color:#168bf2}
+
+    .btn.secondary{background:#fff;color:#145b9c;border-color:#cbd9e6}
+    .chip{background:#fff}.chip.active{background:#168bf2;color:#fff}
+
+    .home-photo{filter:saturate(1.08)}
+    .tabs{background:#dfe9f3;border-color:#cfdce8}.tab{color:#556b82}.tab.active{background:#168bf2;color:#fff}
+    .match-card,.cycle{background:#fff;box-shadow:0 9px 24px rgba(0,0,0,.12)}
+
+    .bottom-nav{background:rgba(6,20,39,.98);border-top-color:rgba(255,255,255,.08);box-shadow:0 -10px 28px rgba(0,0,0,.28)}
+    .nav{color:#8da4ba}.nav.active{color:#48b8ff}.nav small{font-weight:700}
+    .nav[data-screen="wallet"] .ico{box-shadow:0 3px 10px rgba(255,212,41,.25)}
+
+    .modal-wrap{background:rgba(0,10,24,.68)}
+    .onboarding{background:radial-gradient(circle at 20% 0,rgba(255,212,41,.20),transparent 28%),linear-gradient(155deg,#07182d,#0b2d4f 65%,#0b3f5d)}
+    .onboard-card{box-shadow:0 24px 65px rgba(0,0,0,.38)}
+
+    @media(max-width:520px){
+      body{background:#0b1f3a}
+      .app{background:#0b1f3a}
+      .hero{padding:22px 17px 18px}
+      .hero h2{font-size:31px}
+      main{background:linear-gradient(180deg,#0b1f3a,#091d35)}
+    }
+
+  
+    /* V6.3 — video introduttivo in home */
+    .intro-video-card{
+      overflow:hidden;
+      border-radius:24px;
+      background:#07182d;
+      border:1px solid rgba(77,166,236,.28);
+      box-shadow:0 14px 34px rgba(0,0,0,.24);
+      margin-bottom:4px;
+    }
+    .intro-video-copy{
+      padding:16px 17px 13px;
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      align-items:flex-end;
+    }
+    .intro-video-copy strong{
+      display:block;
+      color:#fff;
+      font-size:17px;
+      margin-bottom:4px;
+    }
+    .intro-video-copy span{
+      display:block;
+      color:#b8cada;
+      font-size:11px;
+      line-height:1.45;
+    }
+    .intro-video-badge{
+      flex:0 0 auto;
+      padding:6px 9px;
+      border-radius:999px;
+      background:rgba(255,212,41,.13);
+      border:1px solid rgba(255,212,41,.27);
+      color:#ffe36a!important;
+      font-weight:850;
+      font-size:10px!important;
+      white-space:nowrap;
+    }
+    .intro-video{
+      display:block;
+      width:100%;
+      aspect-ratio:16/9;
+      background:#02070d;
+      object-fit:cover;
+    }
+    .intro-video-note{
+      padding:10px 16px 14px;
+      color:#8fa8bd;
+      font-size:10px;
+      line-height:1.45;
+    }
+    @media(max-width:520px){
+      .intro-video-card{border-radius:20px}
+      .intro-video-copy{padding:14px 14px 11px;align-items:flex-start}
+      .intro-video-copy strong{font-size:16px}
+      .intro-video-badge{font-size:9px!important}
+    }
+
+  
+    /* V6.4 — video protagonista in apertura */
+    .hero-video-wrap{
+      margin-top:18px;
+      overflow:hidden;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.14);
+      background:#02070d;
+      box-shadow:0 12px 28px rgba(0,0,0,.26);
+    }
+    .hero-video-label{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:11px 13px;
+      background:rgba(6,20,39,.95);
+      color:#fff;
+    }
+    .hero-video-label strong{font-size:13px}
+    .hero-video-label span{font-size:10px;color:#ffe36a;font-weight:850}
+    .hero-main-video{
+      display:block;
+      width:100%;
+      aspect-ratio:16/9;
+      background:#02070d;
+      object-fit:cover;
+    }
+    @media(max-width:520px){
+      .hero-video-wrap{margin-top:15px;border-radius:17px}
+      .hero-video-label{padding:10px 11px}
+      .hero-video-label strong{font-size:12px}
+    }
+
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <header class="top">
-      <div class="brand">
-        <div class="mark">SP</div>
-        <div><strong>Scambio<span>Pro</span></strong><small>Progetto digitale</small></div>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">SP</div>
+      <div><h1>Scambio<span>Pro</span></h1><small>Servizi · Case · Crediti SP</small></div>
+    </div>
+    <div class="demo-pill">DEMO V6.5</div>
+  </header>
+  <main id="screen"></main>
+  <nav class="bottom-nav" aria-label="Navigazione principale">
+    <button class="nav active" data-screen="home"><span class="ico">⌂</span><small>Home</small></button>
+    <button class="nav" data-screen="market"><span class="ico">⌕</span><small>Cerca</small></button>
+    <button class="nav" data-screen="houses"><span class="ico">⌂</span><small>Case</small></button>
+    <button class="nav" data-screen="wallet"><span class="ico">SP</span><small>I miei SP</small></button>
+    <button class="nav" data-screen="profile"><span class="ico">●</span><small>Profilo</small></button>
+  </nav>
+</div>
+
+<div id="modalRoot"></div>
+<div id="toastRoot"></div>
+
+<script>
+const STORAGE='scambiopro_v5_demo';
+const defaultState={
+  user:{name:'Studio Demo',business:'Studio dentistico',area:'Cattolica',balance:1250,limit:2500,rating:4.9},
+  stats:{members:128,offers:51,volume:40250},
+  history:[
+    {label:'Cura odontoiatrica — Mario',date:'Oggi · credito ricevuto',value:1000,type:'in'},
+    {label:'Soggiorno Hotel Aurora',date:'8 ago · acquisto',value:-420,type:'out'},
+    {label:'Consulenza fiscale — Giulia',date:'4 ago · acquisto',value:-180,type:'out'},
+    {label:'Prestazione professionale',date:'1 ago · credito ricevuto',value:850,type:'in'}
+  ],
+  usedOffers:[],
+  houseRequests:[]
+};
+let state=loadState();
+let current='home';
+let marketFilter='Tutti';
+let matchMode='proposte';
+let houseMode='sp';
+
+const offers=[
+  {id:'o1',icon:'🎨',service:'Imbiancatura appartamento',business:'Mario · Imbianchino',area:'Riccione',price:850,rating:4.8,category:'Casa',distance:9},
+  {id:'o2',icon:'🔧',service:'Intervento idraulico',business:'Luca · Idraulico',area:'Misano Adriatico',price:180,rating:4.7,category:'Casa',distance:6},
+  {id:'o3',icon:'🍽️',service:'Cena per due',business:'Ristorante Porto',area:'Cattolica',price:90,rating:4.9,category:'Tempo libero',distance:2},
+  {id:'o4',icon:'🏨',service:'Weekend 1 notte',business:'Hotel Aurora',area:'Riccione',price:210,rating:4.6,category:'Tempo libero',distance:10},
+  {id:'o5',icon:'📊',service:'Consulenza fiscale',business:'Giulia · Commercialista',area:'Rimini',price:150,rating:4.9,category:'Professionisti',distance:19},
+  {id:'o6',icon:'🪚',service:'Mobile su misura',business:'Elena · Falegname',area:'San Giovanni in Marignano',price:700,rating:4.9,category:'Casa',distance:8}
+];
+
+const houses=[
+  {id:'h1',theme:'sea',location:'Cattolica',title:'Bilocale a 200 m dal mare',owner:'Paolo',rating:4.9,guests:4,night:140,available:'5–12 settembre',features:'Terrazzo · aria condizionata · 4 posti',direct:true},
+  {id:'h2',theme:'mountain',location:'Ortisei',title:'Appartamento vista Dolomiti',owner:'Elena',rating:4.8,guests:4,night:165,available:'20–27 settembre',features:'Balcone · parcheggio · 4 posti',direct:false},
+  {id:'h3',theme:'hill',location:'Val d’Orcia',title:'Casa tra le colline',owner:'Marta',rating:4.9,guests:5,night:120,available:'12–19 ottobre',features:'Giardino · cucina · 5 posti',direct:true},
+  {id:'h4',theme:'city',location:'Roma',title:'Loft vicino al centro',owner:'Andrea',rating:4.7,guests:2,night:110,available:'2–9 novembre',features:'Metro vicina · Wi-Fi · 2 posti',direct:false},
+  {id:'h5',theme:'sea',location:'Misano Adriatico',title:'Trilocale lato mare',owner:'Laura',rating:4.8,guests:5,night:130,available:'1–8 giugno',features:'Posto auto · balcone · 5 posti',direct:true}
+];
+
+function loadState(){try{return {...structuredClone(defaultState),...JSON.parse(localStorage.getItem(STORAGE)||'{}')}}catch(e){return structuredClone(defaultState)}}
+function save(){localStorage.setItem(STORAGE,JSON.stringify(state))}
+function sp(n){return new Intl.NumberFormat('it-IT').format(n)+' SP'}
+function euroLike(n){return new Intl.NumberFormat('it-IT').format(n)}
+function toast(msg){const root=document.getElementById('toastRoot');root.innerHTML='<div class="toast">'+msg+'</div>';setTimeout(()=>root.innerHTML='',2600)}
+function setScreen(name){current=name;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x.dataset.screen===name));render()}
+function render(){const el=document.getElementById('screen');if(current==='home')el.innerHTML=homeHTML();if(current==='market')el.innerHTML=marketHTML();if(current==='houses')el.innerHTML=housesHTML();if(current==='match')el.innerHTML=matchHTML();if(current==='wallet')el.innerHTML=walletHTML();if(current==='profile')el.innerHTML=profileHTML();bindScreen()}
+
+function homeHTML(){
+  return `
+  <section class="hero">
+    <div class="eyebrow">Il concetto in una frase</div>
+    <h2>Quello che offri diventa <span class="accent-word">credito</span> da usare con altri.</h2>
+    <p>Fai un lavoro, offri un servizio o metti a disposizione una casa. Ricevi SP e li spendi per ciò che ti serve. <b>Non devi ricambiare la stessa persona.</b></p>
+
+    <div class="hero-video-wrap">
+      <div class="hero-video-label">
+        <strong>Guarda come funziona ScambioPro</strong>
+        <span>▶ 1 MINUTO</span>
       </div>
-      <div class="badge">Marchio depositato · Progetto in sviluppo</div>
-    </header>
-    <section class="hero">
-      <div class="eyebrow">Coming soon</div>
-      <h1>Un nuovo modo di creare <span>valore</span> nella rete.</h1>
-      <p class="lead">ScambioPro è un progetto digitale in fase di sviluppo pensato per mettere in relazione persone, professionisti e attività in modo semplice, trasparente e innovativo.</p>
-      <div class="grid">
-        <div class="card"><div class="icon">01</div><strong>Connessioni utili</strong><p>Una piattaforma pensata per favorire nuove opportunità tra utenti e professionisti.</p></div>
-        <div class="card"><div class="icon">02</div><strong>Esperienza semplice</strong><p>Un ambiente digitale intuitivo, progettato per essere facile da usare anche da smartphone.</p></div>
-        <div class="card"><div class="icon">03</div><strong>Progetto riservato</strong><p>La demo completa e i dettagli operativi sono condivisi esclusivamente con partner selezionati.</p></div>
-      </div>
-      <div class="note"><b>ScambioPro è attualmente in fase di sviluppo.</b> Le funzionalità, il modello operativo e la documentazione completa non sono pubblicati su questo sito.</div>
+      <video class="hero-main-video" controls playsinline preload="auto">
+        <source src="scambiopro-video.mp4#t=0.001" type="video/mp4">
+        Il tuo browser non supporta la riproduzione video.
+      </video>
+    </div>
+  </section>
+
+  <div class="section-head"><h3>Cosa vuoi fare?</h3><span>Scegli da qui</span></div>
+  <div class="action-grid">
+    <button class="action-card" data-go="market"><div class="action-icon">⌕</div><strong>Cerco qualcosa</strong><small>Trova un professionista, un servizio o qualcosa da acquistare con SP.</small></button>
+    <button class="action-card" data-action="offer-wizard"><div class="action-icon">＋</div><strong>Offro qualcosa</strong><small>Pubblica ciò che sai fare e indica quanti SP vuoi ricevere.</small></button>
+    <button class="action-card" data-go="houses"><div class="action-icon">🏠</div><strong>Scambio casa</strong><small>Ospita qualcuno, guadagna SP oppure proponi uno scambio diretto.</small></button>
+  </div>
+
+  <div class="section-head"><h3>Esempio semplicissimo</h3><span>Per capire gli SP</span></div>
+  <section class="card highlight">
+    <div class="simple-flow">
+      <div class="flow-step"><div class="flow-icon">🦷</div><div><strong>Mario va dal dentista</strong><span>Il dentista esegue una prestazione</span></div><div class="flow-value">+1.000 SP</div></div>
+      <div class="flow-step"><div class="flow-icon">🏖️</div><div><strong>Il dentista va a Cattolica</strong><span>Usa i crediti per un soggiorno</span></div><div class="flow-value">-700 SP</div></div>
+      <div class="flow-step"><div class="flow-icon">SP</div><div><strong>Gli restano</strong><span>Da usare per altri servizi della rete</span></div><div class="flow-value">300 SP</div></div>
+    </div>
+    <div class="key-message"><b>La cosa importante:</b> Mario non deve avere una casa a Cattolica e non deve offrire nulla al dentista. Il dentista usa gli SP con un'altra persona della rete.</div>
+  </section>
+
+  <div class="sp-help">
+    <div class="sp-bubble">SP</div>
+    <div><strong>Cosa sono gli SP?</strong><p>Sono crediti interni usati per tenere il conto degli scambi. Nella demo 100 SP rappresentano un valore di riferimento di 100 €.</p><button class="btn secondary small" style="margin-top:9px" data-action="explain-sp">Spiegamelo meglio</button></div>
+  </div>
+
+  <div class="section-head"><h3>Scambio casa: due possibilità</h3><span>Scegli quella più comoda</span></div>
+  <div class="simple-tabs">
+    <button class="simple-choice" data-go="houses" data-set-house="sp"><strong>🏠 Ospito e guadagno SP</strong><span>Una persona usa la mia casa. Con gli SP ricevuti posso soggiornare da un'altra persona.</span></button>
+    <button class="simple-choice" data-go="houses" data-set-house="direct"><strong>⇄ Scambio diretto</strong><span>Io vado a casa tua e tu vieni a casa mia, se date e destinazioni coincidono.</span></button>
+  </div>
+
+  <div class="section-head"><h3>Non trovi uno scambio semplice?</h3><span>Ci pensa la rete</span></div>
+  <section class="card">
+    <h4>ScambioPro può trovare una combinazione</h4>
+    <div class="meta">Quando A vuole qualcosa da B ma B non vuole nulla da A, il sistema può collegare altre persone finché il valore torna in circolo.</div>
+    <button class="btn secondary full" style="margin-top:12px" data-go="match">Vedi come trova una combinazione</button>
+  </section>
+
+  <div class="section-head"><h3>Per sentirsi sicuri</h3><span>Nel prodotto reale</span></div>
+  <div class="trust-grid">
+    <div class="trust-item"><b>✓ Identità verificata</b>Profili e attività controllati prima di scambiare.</div>
+    <div class="trust-item"><b>★ Recensioni</b>Storico delle esperienze e affidabilità degli utenti.</div>
+    <div class="trust-item"><b>▣ Regole chiare</b>Cancellazioni, cauzioni, condizioni e assistenza.</div>
+  </div>
+
+  <div class="legal-note">ScambioPro V6.3 è una demo concettuale. Per un servizio reale servono verifiche legali, fiscali, contrattuali e, per i soggiorni, gli adempimenti applicabili.</div>`
+}
+
+function marketHTML(){
+  const cats=['Tutti','Casa','Professionisti','Tempo libero'];
+  const filtered=marketFilter==='Tutti'?offers:offers.filter(o=>o.category===marketFilter);
+  return `
+    <div class="section-head" style="margin-top:4px"><h3>Cosa stai cercando?</h3><span>Servizi disponibili in SP</span></div>
+    <div class="notice">Scrivi quello che ti serve oppure scegli una categoria. Il prezzo è indicato in crediti SP.</div>
+    <div class="search"><input id="marketSearch" class="input" placeholder="Es. idraulico, imbianchino, cena..."><button class="btn secondary small" id="marketSearchBtn">Cerca</button></div>
+    <div class="chips">${cats.map(c=>`<button class="chip ${marketFilter===c?'active':''}" data-filter="${c}">${c}</button>`).join('')}</div>
+    <div id="offerList">${offerList(filtered)}</div>
+    <button class="btn secondary full" style="margin-top:8px" data-action="offer-wizard">Vuoi offrire qualcosa? Pubblica la tua offerta</button>
+  `
+}
+function offerList(list){return list.length?list.map(o=>`
+  <article class="card offer" data-text="${(o.service+' '+o.business+' '+o.area).toLowerCase()}">
+    <div class="offer-icon">${o.icon}</div>
+    <div><h4>${o.service}</h4><div class="meta">${o.business} · ${o.area}</div><span class="pill green">★ ${o.rating}</span><span class="pill">${o.distance} km</span></div>
+    <div class="offer-price">${euroLike(o.price)} <small>SP</small><div style="margin-top:8px"><button class="btn small" data-buy="${o.id}">Richiedi</button></div></div>
+  </article>`).join(''):'<div class="card"><div class="meta">Nessun risultato. Prova con un’altra parola oppure pubblica quello che stai cercando.</div></div>'}
+
+function housesHTML(){
+  return `
+    <div class="section-head" style="margin-top:4px"><h3>Case e soggiorni</h3><span>Due modi per partire</span></div>
+    <div class="simple-tabs">
+      <button class="simple-choice ${houseMode==='sp'?'active':''}" data-house-tab="sp"><strong>🏠 Con crediti SP</strong><span>Ospiti qualcuno, guadagni SP e li usi dove preferisci.</span></button>
+      <button class="simple-choice ${houseMode==='direct'?'active':''}" data-house-tab="direct"><strong>⇄ Scambio diretto</strong><span>Le due famiglie si scambiano le case direttamente.</span></button>
+    </div>
+    ${houseMode==='sp'?housesSPHTML():housesDirectHTML()}
+  `
+}
+function housesSPHTML(){
+  return `
+    <section class="card highlight">
+      <div class="house-summary"><div><div class="eyebrow">Esempio: la tua casa</div><h4 style="margin-top:6px">Casa sul Lago</h4><div class="meta">Metti a disposizione 7 notti · 100 SP/notte</div></div><div class="offer-price">+700 <small>SP</small></div></div>
+      <button class="btn secondary full" style="margin-top:12px" data-action="publish-house">Metti a disposizione la casa</button>
     </section>
-    <footer class="footer"><span>© 2026 <b>ScambioPro</b></span><span>Demo completa disponibile esclusivamente su invito.</span></footer>
-  </main>
+    <div class="section-head"><h3>Dove vuoi andare?</h3><span>Usa gli SP ricevuti</span></div>
+    <div class="home-grid">${houses.map(h=>houseCard(h,'sp')).join('')}</div>
+    <div class="legal-note">Nella versione reale: identità verificata, calendario, regole della casa, cauzione separata, eventuali costi di pulizia e adempimenti fiscali/turistici.</div>
+  `
+}
+function housesDirectHTML(){
+  const direct=houses.filter(h=>h.direct);
+  return `
+    <section class="card">
+      <div class="eyebrow">Scambio classico casa per casa</div>
+      <h4 style="margin-top:7px">Tu: Casa sul Lago · 7 notti</h4>
+      <div class="meta">Qui serve che entrambe le persone siano interessate alle rispettive case e che le date siano compatibili.</div>
+    </section>
+    <div class="home-grid">${direct.map(h=>houseCard(h,'direct')).join('')}</div>
+    <div class="notice amber">Lo scambio diretto funziona solo quando date, destinazioni e durata coincidono. Per questo la modalità con SP è molto più flessibile.</div>
+  `
+}
+function houseCard(h,mode){
+  const total=h.night*5;
+  return `<article class="card home-hero">
+    <div class="home-photo ${h.theme}"><div class="home-photo-label"><span>${h.location}</span><strong>${h.title}</strong></div></div>
+    <div class="home-body">
+      <div class="card-head"><div><div class="meta">${h.owner} · ★ ${h.rating} · fino a ${h.guests} ospiti</div><span class="pill green">${h.available}</span></div><div class="home-price">${mode==='sp'?h.night:'⇄'} <small>${mode==='sp'?'SP/notte':'scambio'}</small></div></div>
+      <div class="meta" style="margin-top:9px">${h.features}</div>
+      <div class="home-actions">
+        <button class="btn secondary small" data-house-detail="${h.id}">Dettagli</button>
+        <button class="btn small" ${mode==='sp'?`data-house-book="${h.id}"`:`data-house-swap="${h.id}"`}>${mode==='sp'?`5 notti · ${sp(total)}`:'Proponi scambio'}</button>
+      </div>
+    </div>
+  </article>`
+}
+
+function matchHTML(){
+  return `
+    <div class="section-head" style="margin-top:4px"><h3>ScambioPro trova una strada</h3><span>Quando lo scambio diretto non basta</span></div>
+    <div class="notice">Non devi capire il meccanismo tecnico: tu dici cosa cerchi e cosa puoi offrire. ScambioPro prova a collegare più persone per far funzionare lo scambio.</div>
+    <div class="tabs"><button class="tab ${matchMode==='proposte'?'active':''}" data-match-tab="proposte">Esempi</button><button class="tab ${matchMode==='simula'?'active':''}" data-match-tab="simula">Prova tu</button></div>
+    ${matchMode==='proposte'?matchProposals():matchSimulator()}
+  `
+}
+function matchProposals(){return `
+  <article class="match-card">
+    <div class="card-head"><div><span class="cycle-badge">Compatibilità 96%</span><h4 style="margin-top:10px">Casa sul Lago → Cattolica</h4><div class="meta">Soggiorni · 700 SP</div></div><div class="offer-price">700 <small>SP</small></div></div>
+    <div class="match-route"><b>Tu</b> ospiti Marco sul lago → ricevi <b>700 SP</b> → li usi nell'appartamento di <b>Paolo a Cattolica</b>. Marco e Paolo non devono conoscersi né scambiarsi casa.</div>
+    <button class="btn full" data-go="houses">Apri ScambioCasa</button>
+  </article>
+  <article class="match-card">
+    <div class="card-head"><div><span class="cycle-badge">Compatibilità 94%</span><h4 style="margin-top:10px">Circuito casa + professionisti</h4><div class="meta">3 attività · 1.000 SP</div></div><div class="offer-price">+1.000 <small>SP</small></div></div>
+    <div class="match-route"><b>Tu</b> curi Mario → <b>Mario</b> imbianca Luca → <b>Luca</b> fa un lavoro idraulico per te.</div>
+    <button class="btn full" data-action="accept-match">Apri il circuito</button>
+  </article>
+  <article class="match-card">
+    <div class="card-head"><div><span class="cycle-badge">Compatibilità 88%</span><h4 style="margin-top:10px">Circuito servizi + ospitalità</h4><div class="meta">4 attività · 650 SP</div></div></div>
+    <div class="match-route"><b>Tu</b> → Hotel Aurora → Giulia Commercialista → Ristorante Porto → <b>Tu</b></div>
+    <button class="btn secondary full" data-action="open-second-match">Vedi dettagli</button>
+  </article>`}
+function matchSimulator(){return `
+  <section class="card">
+    <h4>Di cosa hai bisogno?</h4><div class="meta" style="margin-bottom:11px">Scegli una spesa: la demo prova a chiudere un circuito attorno a te.</div>
+    <select id="needSelect" class="input">
+      <option value="850">Imbiancatura — 850 SP</option>
+      <option value="700">5 notti a Cattolica — 700 SP</option>
+      <option value="700">Mobile su misura — 700 SP</option>
+      <option value="420">Weekend hotel — 420 SP</option>
+    </select>
+    <button class="btn full" style="margin-top:10px" data-action="find-cycle">Trova un circuito</button>
+    <div id="simResult"></div>
+  </section>`}
+
+function walletHTML(){
+  return `
+    <div class="section-head" style="margin-top:4px"><h3>I miei SP</h3><span>Crediti disponibili nella demo</span></div>
+    <section class="card highlight">
+      <div class="meta">Hai a disposizione</div><div class="balance" style="margin:7px 0 10px">${euroLike(state.user.balance)} <small>SP</small></div>
+      <div class="meta">Puoi usarli per servizi, professionisti e soggiorni presenti nella rete.</div>
+    </section>
+    <div class="sp-help"><div class="sp-bubble">SP</div><div><strong>Come aumentano?</strong><p>Quando qualcuno acquista un tuo servizio o soggiorna nella tua casa, ricevi SP. Quando acquisti qualcosa, il saldo scende.</p></div></div>
+    <div class="section-head"><h3>Ultimi movimenti</h3><span>${state.history.length} operazioni</span></div>
+    <section class="card">${state.history.map(h=>`<div class="activity"><div><strong>${h.label}</strong><span>${h.date}</span></div><div class="activity-value ${h.type==='in'?'positive':'negative'}">${h.value>0?'+':''}${euroLike(h.value)} SP</div></div>`).join('')}</section>
+    <details class="advanced"><summary>Dettagli avanzati della demo</summary><div class="meta">Limite SP simulato: ${sp(state.user.limit)}. In un prodotto reale eventuali limiti, garanzie, affidabilità e regole di compensazione dovrebbero essere definiti e controllati in modo specifico.</div></details>`
+}
+
+function profileHTML(){return `
+  <div class="section-head" style="margin-top:4px"><h3>Profilo attività</h3><span>Account demo</span></div>
+  <section class="card"><div class="profile"><div class="profile-avatar">SD</div><div><h3>${state.user.name}</h3><div class="meta">${state.user.business}<br>${state.user.area}</div><span class="pill green">★ ${state.user.rating}</span><span class="pill">Identità demo verificata</span></div></div></section>
+  <section class="card"><div class="card-head"><div><h4>Cosa offro</h4><div class="meta">Prestazioni odontoiatriche · raggio 30 km</div></div><button class="btn secondary small" data-action="edit-offer">Modifica</button></div></section>
+  <section class="card"><div class="card-head"><div><h4>La mia casa demo</h4><div class="meta">Casa sul Lago · fino a 7 notti disponibili</div></div><button class="btn secondary small" data-go="houses">Gestisci</button></div></section>
+  <section class="card"><h4>Regole della demo</h4><div class="meta" style="margin-top:7px;line-height:1.6">Gli SP servono solo all’interno della rete<br>Nella demo non sono convertibili in denaro<br>Servizi e soggiorni hanno regole separate</div></section>
+  <button class="btn danger full" data-action="reset-demo">Ripristina dati demo</button>`}
+
+function bindScreen(){
+  document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{if(b.dataset.setHouse){houseMode=b.dataset.setHouse}setScreen(b.dataset.go)});
+  document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{marketFilter=b.dataset.filter;render()});
+  document.querySelectorAll('[data-match-tab]').forEach(b=>b.onclick=()=>{matchMode=b.dataset.matchTab;render()});
+  document.querySelectorAll('[data-house-tab]').forEach(b=>b.onclick=()=>{houseMode=b.dataset.houseTab;render()});
+  document.querySelectorAll('[data-buy]').forEach(b=>b.onclick=()=>buyOffer(b.dataset.buy));
+  document.querySelectorAll('[data-house-book]').forEach(b=>b.onclick=()=>bookHouse(b.dataset.houseBook));
+  document.querySelectorAll('[data-house-swap]').forEach(b=>b.onclick=()=>swapHouse(b.dataset.houseSwap));
+  document.querySelectorAll('[data-house-detail]').forEach(b=>b.onclick=()=>houseDetail(b.dataset.houseDetail));
+  document.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>handleAction(b.dataset.action,b));
+  const search=document.getElementById('marketSearch'); if(search){search.addEventListener('input',applySearch);document.getElementById('marketSearchBtn').onclick=applySearch}
+}
+function applySearch(){const q=(document.getElementById('marketSearch').value||'').trim().toLowerCase();document.querySelectorAll('#offerList .offer').forEach(x=>x.classList.toggle('hidden',q&&!x.dataset.text.includes(q)))}
+function buyOffer(id){const o=offers.find(x=>x.id===id);if(!o)return;if(state.user.balance-o.price < -state.user.limit){toast('SP disponibili insufficienti per questa operazione.');return}openModal('Richiedi servizio',`<div class="card" style="margin-bottom:12px"><h4>${o.service}</h4><div class="meta">${o.business} · ${o.area}</div></div><div class="notice">Vuoi inviare questa richiesta? Nella demo gli SP vengono scalati subito.</div><button class="btn full" id="confirmBuy">Conferma</button>`);setTimeout(()=>{const c=document.getElementById('confirmBuy');if(c)c.onclick=()=>{state.user.balance-=o.price;state.history.unshift({label:o.service+' — '+o.business,date:'Adesso · acquisto demo',value:-o.price,type:'out'});state.usedOffers.push(o.id);save();closeModal();toast('Richiesta registrata: -'+sp(o.price));render()}},0)}
+function houseDetail(id){const h=houses.find(x=>x.id===id);if(!h)return;openModal(h.title,`<div class="home-photo ${h.theme}" style="border-radius:18px"><div class="home-photo-label"><span>${h.location}</span><strong>${h.title}</strong></div></div><div class="card" style="margin-top:12px"><div class="meta">Host: ${h.owner} · ★ ${h.rating}<br>Disponibilità: ${h.available}<br>Ospiti: fino a ${h.guests}<br>${h.features}</div></div><div class="notice">Valore demo: ${sp(h.night)} per notte. Cauzione e costi extra, se previsti, resterebbero separati dagli SP.</div>`)}
+function bookHouse(id){const h=houses.find(x=>x.id===id);if(!h)return;const nights=5,total=h.night*nights;if(state.user.balance-total < -state.user.limit){toast('SP disponibili insufficienti per questo soggiorno.');return}openModal('Prenota con SP',`<div class="card"><h4>${h.title}</h4><div class="meta">${h.location} · ${nights} notti · ${h.available}</div><div class="balance" style="font-size:30px;margin-top:12px">${euroLike(total)} <small>SP</small></div></div><div class="notice">La demo scala gli SP subito. In un prodotto reale il credito verrebbe bloccato e trasferito secondo le regole di prenotazione.</div><button class="btn full" id="confirmHouse">Conferma soggiorno demo</button>`);setTimeout(()=>{const c=document.getElementById('confirmHouse');if(c)c.onclick=()=>{state.user.balance-=total;state.history.unshift({label:'ScambioCasa — '+h.location,date:'Adesso · '+nights+' notti demo',value:-total,type:'out'});state.houseRequests.push({id:h.id,type:'sp',total});save();closeModal();toast('Soggiorno demo richiesto: -'+sp(total));render()}},0)}
+function swapHouse(id){const h=houses.find(x=>x.id===id);if(!h)return;openModal('Proponi scambio diretto',`<div class="exchange-example"><div class="exchange-side"><span class="stay-chip">Tu offri</span><strong>Casa sul Lago</strong><div class="meta">7 notti</div></div><div class="exchange-arrow">⇄</div><div class="exchange-side"><span class="stay-chip">${h.location}</span><strong>${h.title}</strong><div class="meta">${h.available}</div></div></div><div class="notice" style="margin-top:12px">Nessun SP viene mosso finché i due proprietari non accettano date e condizioni.</div><button class="btn full" id="confirmSwap">Invia proposta demo</button>`);setTimeout(()=>{const c=document.getElementById('confirmSwap');if(c)c.onclick=()=>{state.houseRequests.push({id:h.id,type:'direct'});save();closeModal();toast('Proposta di scambio inviata nella demo.')}},0)}
+
+function handleAction(action){
+  if(action==='offer-wizard'){
+    openModal('Cosa vuoi offrire?',`<div class="notice">Bastano tre informazioni. Questa è una simulazione: non pubblica nulla realmente.</div><label class="meta">Tipo di offerta</label><select id="offerType" class="input"><option>Servizio professionale</option><option>Lavoro artigianale</option><option>Prodotto o bene</option><option>Casa / soggiorno</option></select><label class="meta" style="display:block;margin-top:10px">Descrizione</label><input id="offerDesc" class="input" placeholder="Es. imbiancatura appartamento"><label class="meta" style="display:block;margin-top:10px">Valore richiesto</label><input id="offerValue" class="input" type="number" value="500" min="1"><button class="btn full" style="margin-top:12px" id="publishOfferV5">Pubblica offerta demo</button>`);
+    setTimeout(()=>{const p=document.getElementById('publishOfferV5');if(p)p.onclick=()=>{const d=document.getElementById('offerDesc')?.value||'Nuova offerta';const v=Number(document.getElementById('offerValue')?.value||500);closeModal();toast(d+' pubblicata per '+sp(v)+' nella demo.')}},0)
+  }
+  if(action==='explain-sp'){
+    openModal('SP spiegati senza tecnicismi',`<div class="sp-help"><div class="sp-bubble">SP</div><div><strong>Pensa agli SP come a un conto interno della rete.</strong><p>Se offri qualcosa per 1.000 SP, il tuo saldo aumenta di 1.000. Puoi poi usare quei crediti con altri membri.</p></div></div><div class="key-message"><b>Esempio:</b> lavori per Mario e ricevi 1.000 SP. Puoi spenderne 700 per una casa a Cattolica e 300 per una cena o un altro servizio. Non devi spenderli con Mario.</div><div class="legal-note">Nella demo 1 SP è solo un’unità di riferimento. Non è denaro e non è convertibile in euro.</div>`)
+  }
+  if(action==='show-how'){document.getElementById('come-funziona')?.scrollIntoView({behavior:'smooth',block:'start'})}
+  if(action==='publish-house'){openModal('Pubblica Casa sul Lago',`<div class="card"><h4>Casa sul Lago</h4><div class="meta">Disponibilità demo: 7 notti<br>Valore suggerito: 100 SP/notte<br>Capienza: 4 ospiti</div></div><label class="meta">Periodo</label><select class="input"><option>1–8 settembre</option><option>15–22 settembre</option><option>1–8 ottobre</option></select><button class="btn full" style="margin-top:12px" id="confirmPublish">Pubblica nella demo</button>`);setTimeout(()=>{const c=document.getElementById('confirmPublish');if(c)c.onclick=()=>{closeModal();toast('Casa pubblicata nella demo: potenziale +700 SP.')}},0)}
+  if(action==='accept-match'){openModal('Circuito proposto',`<div class="cycle"><div class="cycle-node"><div class="avatar">1</div><div><strong>Tu → Mario</strong><span>Prestazione odontoiatrica</span></div><div class="cycle-value">1.000 SP</div></div><div class="cycle-node"><div class="avatar">2</div><div><strong>Mario → Luca</strong><span>Imbiancatura</span></div><div class="cycle-value">1.000 SP</div></div><div class="cycle-node"><div class="avatar">3</div><div><strong>Luca → Te</strong><span>Intervento idraulico</span></div><div class="cycle-value">1.000 SP</div></div></div><div class="notice" style="margin-top:12px">In un sistema reale ogni partecipante dovrebbe accettare la propria operazione prima della chiusura.</div><button class="btn full" style="margin-top:10px" id="simulateClose">Simula chiusura</button>`);setTimeout(()=>{const x=document.getElementById('simulateClose');if(x)x.onclick=()=>{closeModal();toast('Circuito chiuso nella demo: 3 operazioni compensate.')}},0)}
+  if(action==='open-second-match'){openModal('Dettaglio circuito',`<div class="match-route"><b>Tu</b> offri 650 SP di prestazioni → <b>Hotel Aurora</b> offre soggiorni → <b>Giulia</b> offre consulenza fiscale → <b>Ristorante Porto</b> offre ristorazione → il valore torna verso <b>te</b>.</div><div class="notice">Questa è una simulazione di matching, non una transazione reale.</div>`)}
+  if(action==='find-cycle'){const val=Number(document.getElementById('needSelect')?.value||850);document.getElementById('simResult').innerHTML=`<div class="cycle-result" style="margin-top:12px"><span class="cycle-badge">Circuito trovato</span><div style="margin-top:8px"><b>Tu</b> acquisti per ${sp(val)} → un'attività della rete acquista da un tuo cliente o usa una tua disponibilità → il circuito si chiude con valore che torna verso di te.<br><br><b>Copertura stimata demo: 92%</b></div></div>`;toast('Circuito compatibile trovato.')}
+  if(action==='edit-offer'){openModal('Modifica offerta',`<label class="meta">Servizio offerto</label><input class="input" value="Prestazioni odontoiatriche"><label class="meta" style="display:block;margin-top:10px">Raggio operativo</label><select class="input"><option>15 km</option><option selected>30 km</option><option>50 km</option></select><button class="btn full" style="margin-top:12px" id="saveOffer">Salva</button>`);setTimeout(()=>{const s=document.getElementById('saveOffer');if(s)s.onclick=()=>{closeModal();toast('Offerta demo aggiornata.')}},0)}
+  if(action==='reset-demo'){localStorage.removeItem(STORAGE);state=structuredClone(defaultState);toast('Dati demo ripristinati.');render()}
+}
+function openModal(title,body){document.getElementById('modalRoot').innerHTML=`<div class="modal-wrap"><section class="modal"><div class="modal-head"><h3>${title}</h3><button class="close" id="modalClose">✕</button></div>${body}</section></div>`;document.getElementById('modalClose').onclick=closeModal;document.querySelector('.modal-wrap').addEventListener('click',e=>{if(e.target.classList.contains('modal-wrap'))closeModal()})}
+function closeModal(){document.getElementById('modalRoot').innerHTML=''}
+
+document.querySelectorAll('.nav').forEach(b=>b.addEventListener('click',()=>setScreen(b.dataset.screen)));
+render();
+</script>
 </body>
 </html>
