@@ -340,6 +340,21 @@
     .buyer-example{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;border:1px solid #dbe6ef;background:#fff;border-radius:18px;padding:15px}.buyer-example strong{display:block;color:#0b2a52;font-size:14px}.buyer-example span{display:block;margin-top:4px;color:#667d92;font-size:11px;line-height:1.45}.buyer-save{padding:10px 12px;border-radius:14px;background:#eafaf3;color:#176245;font-weight:950;text-align:center;white-space:nowrap}.buyer-save small{display:block;font-size:8px;font-weight:800;margin-top:2px}
     .founder-badge{display:flex;gap:12px;align-items:center;padding:14px 15px;border-radius:18px;border:1px solid #f1df9b;background:#fff9db;color:#5c4a00}.founder-badge .ico{font-size:25px}.founder-badge strong{display:block;font-size:13px}.founder-badge span{display:block;margin-top:3px;font-size:10px;line-height:1.45;color:#796a24}
     @media(max-width:520px){.benefit-grid,.sp-steps,.pay-options{grid-template-columns:1fr}.offer-seek{grid-template-columns:1fr}.buyer-example{grid-template-columns:1fr}.buyer-save{text-align:left}}
+  
+    /* V6.7 — home più corta e orientata alla conversione */
+    .hero-cta{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
+    .hero-cta .btn{min-height:46px}
+    .hero-cta .btn.primary-cta{background:linear-gradient(135deg,#ff7a18,#ff9b35);color:#fff;box-shadow:0 10px 22px rgba(255,122,24,.22)}
+    .hero-proof{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.hero-proof span{font-size:10px;color:#c9d9e7;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.10);padding:6px 8px;border-radius:999px}
+    .compact-section{margin-top:20px}
+    .conversion-card{border-radius:22px;padding:18px;background:linear-gradient(135deg,#fff8dd,#fff);border:1px solid #f0df9d;box-shadow:0 10px 24px rgba(0,0,0,.10)}
+    .conversion-card h3{margin:0 0 7px;color:#0b2a52;font-size:20px}.conversion-card p{margin:0;color:#60758a;font-size:12px;line-height:1.55}
+    .conversion-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.conversion-actions .btn{flex:1 1 190px}
+    .control-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.control-item{padding:12px;border-radius:15px;background:#fff;border:1px solid #dce7ef;text-align:center}.control-item strong{display:block;color:#0b2a52;font-size:13px}.control-item span{display:block;color:#71869a;font-size:9px;margin-top:3px;line-height:1.4}
+    .mini-security{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.mini-security>div{background:#fff;border:1px solid #dbe6ef;border-radius:16px;padding:13px;box-shadow:0 7px 18px rgba(0,0,0,.08)}.mini-security b{display:block;color:#0b2a52;font-size:12px;margin-bottom:4px}.mini-security span{font-size:10px;line-height:1.45;color:#687e92}
+    .house-teaser{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:15px 16px;border-radius:18px;background:#fff;border:1px solid #dbe6ef}.house-teaser strong{display:block;color:#0b2a52;font-size:14px}.house-teaser span{display:block;margin-top:4px;color:#6c8296;font-size:10px;line-height:1.45}
+    @media(max-width:520px){.control-strip,.mini-security{grid-template-columns:1fr}.hero-cta .btn{width:100%}.house-teaser{align-items:flex-start;flex-direction:column}}
+
   </style>
 </head>
 <body>
@@ -349,7 +364,7 @@
       <div class="brand-mark">SP</div>
       <div><h1>Scambio<span>Pro</span></h1><small>Servizi · Case · Crediti SP</small></div>
     </div>
-    <div class="demo-pill">DEMO V6.5</div>
+    <div class="demo-pill">DEMO · FASE PILOTA</div>
   </header>
   <main id="screen"></main>
   <nav class="bottom-nav" aria-label="Navigazione principale">
@@ -415,118 +430,94 @@ function homeHTML(){
     <div class="eyebrow">ScambioPro · rete professionale</div>
     <h2>Fatti trovare. Trova nuovi clienti. <span class="accent-word">Usa quello che sai fare</span> per ottenere ciò che ti serve.</h2>
     <p><b>ScambioPro trasforma la capacità professionale inutilizzata in potere d’acquisto all’interno di una rete</b>, lasciando a ogni attività la libertà di decidere quanto valore scambiare in SP.</p>
-
-    <div class="hero-video-wrap">
-      <div class="hero-video-label">
-        <strong>Guarda come funziona ScambioPro</strong>
-        <span>▶ 1 MINUTO</span>
-      </div>
-      <video class="hero-main-video" controls playsinline preload="auto">
+    <div class="hero-cta">
+      <button class="btn primary-cta" data-action="offer-wizard">Prova ScambioPro gratis</button>
+      <button class="btn secondary" data-action="scroll-video">▶ Guarda come funziona</button>
+    </div>
+    <div class="hero-proof"><span>✓ Nessun obbligo di accettare SP</span><span>✓ Decidi tu la quota</span><span>✓ Demo senza registrazione</span></div>
+    <div class="hero-video-wrap" id="video-scambiopro">
+      <div class="hero-video-label"><strong>ScambioPro in 1 minuto</strong><span>▶ VIDEO</span></div>
+      <video class="hero-main-video" controls playsinline preload="metadata">
         <source src="scambiopro-video.mp4#t=0.001" type="video/mp4">
         Il tuo browser non supporta la riproduzione video.
       </video>
     </div>
-    <div class="value-banner"><strong>Non è un baratto diretto.</strong><span>Non devi comprare dalla stessa persona che compra da te: offri valore alla rete, maturi SP e li utilizzi con altri aderenti.</span></div>
+    <div class="value-banner"><strong>Non è baratto diretto.</strong><span>Non devi comprare dalla stessa persona che compra da te: offri valore alla rete, maturi SP e li utilizzi con altri aderenti.</span></div>
   </section>
 
-  <div class="section-head"><h3>Perché iscriversi?</h3><span>Il vantaggio parte subito</span></div>
+  <div class="section-head"><h3>Tre motivi per esserci</h3><span>Il vantaggio parte subito</span></div>
   <div class="benefit-grid">
-    <div class="benefit-card"><div class="benefit-icon">📣</div><strong>Fatti trovare</strong><span>Una vetrina professionale per mostrare attività, servizi, zona, recensioni e disponibilità.</span></div>
-    <div class="benefit-card"><div class="benefit-icon">🤝</div><strong>Trova nuovi clienti</strong><span>Ricevi richieste da persone e attività che stanno cercando proprio ciò che offri.</span></div>
-    <div class="benefit-card"><div class="benefit-icon">SP</div><strong>Aumenta il potere d’acquisto</strong><span>Decidi tu quanta parte del tuo lavoro trasformare in SP da usare nella rete.</span></div>
+    <div class="benefit-card"><div class="benefit-icon">📣</div><strong>Fatti trovare</strong><span>Crea la tua vetrina professionale e mostra servizi, zona e reputazione.</span></div>
+    <div class="benefit-card"><div class="benefit-icon">🤝</div><strong>Trova nuovi clienti</strong><span>Ricevi richieste da persone e attività che cercano proprio ciò che offri.</span></div>
+    <div class="benefit-card"><div class="benefit-icon">SP</div><strong>Più potere d’acquisto</strong><span>Accetta solo gli SP che desideri e usali con gli altri aderenti alla rete.</span></div>
   </div>
 
-  <div class="section-head"><h3>Gli SP, in 3 mosse</h3><span>Semplice e controllabile</span></div>
-  <div class="sp-steps">
-    <div class="sp-step"><div class="n">1</div><b>Offri</b><span>Metti a disposizione una prestazione, un servizio o un bene.</span></div>
-    <div class="sp-step"><div class="n">2</div><b>Guadagni SP</b><span>Alla conclusione dello scambio, gli SP entrano nel tuo saldo.</span></div>
-    <div class="sp-step"><div class="n">3</div><b>ScambioPro ti mostra dove spenderli</b><span>Il sistema incrocia ciò che cerchi con le opportunità disponibili.</span></div>
-  </div>
-
-  <div class="section-head"><h3>Gli SP diventano concreti prima di accettarli</h3><span>Esempio demo</span></div>
+  <div class="section-head"><h3>Prima di accettare SP, scopri dove potresti spenderli</h3><span>Esempio demo</span></div>
   <section class="demo-box">
-    <span class="demo-tag">Esempio</span>
-    <h4 style="margin:9px 0 4px">Marco è un imbianchino</h4>
-    <div class="meta">Quando si iscrive indica non solo cosa offre, ma anche cosa gli serve.</div>
+    <span class="demo-tag">Marco · Imbianchino</span>
     <div class="offer-seek">
       <div><b>Offro</b><span>🎨 Tinteggiature e piccoli lavori di imbiancatura</span></div>
       <div><b>Cerco</b><span>🦷 Dentista · 🔧 Meccanico · 🏖️ Weekend al mare</span></div>
     </div>
-    <div class="spend-card"><b>Nella rete ci sono già opportunità compatibili</b><span>2 dentisti, 3 meccanici e 5 strutture ricettive accettano SP. Se Marco accetta 500 SP, ScambioPro può mostrargli subito le offerte compatibili con ciò che cerca.</span><div class="spend-level">Spendibilità SP · ALTA</div></div>
-    <div class="meta" style="margin-top:8px">I numeri sopra sono solo un esempio illustrativo della funzione futura, non dati reali della rete.</div>
+    <div class="spend-card"><b>ScambioPro trova opportunità compatibili prima dello scambio</b><span>Se Marco valuta di accettare 500 SP, il sistema può mostrargli in anticipo quali offerte della rete sono compatibili con ciò che sta cercando.</span><div class="spend-level">Spendibilità SP · ALTA</div></div>
+    <div class="meta" style="margin-top:8px">L'indicatore e i numeri mostrati nella demo sono illustrativi, non dati reali.</div>
   </section>
 
-  <div class="section-head"><h3>Decidi tu quanto accettare in SP</h3><span>Nessun obbligo</span></div>
+  <div class="section-head"><h3>Sei tu a decidere quanti SP accettare</h3><span>Controllo totale</span></div>
   <section class="card highlight">
-    <h4>Una prestazione da 1.000 € può essere gestita come preferisci</h4>
-    <div class="meta">Il modello puro 100% SP rimane possibile, ma puoi iniziare con una quota più prudente.</div>
+    <h4>Prestazione dal valore di riferimento di 1.000 €</h4>
     <div class="pay-options">
       <div class="pay-option"><strong>1.000 SP</strong><span>100% SP</span></div>
-      <div class="pay-option"><strong>500 € + 500 SP</strong><span>50% / 50%</span></div>
+      <div class="pay-option"><strong>500 € + 500 SP</strong><span>Pagamento misto</span></div>
       <div class="pay-option"><strong>800 € + 200 SP</strong><span>Quota SP ridotta</span></div>
     </div>
-    <div class="notice" style="margin-top:12px"><b>Controllo personale:</b> il professionista può stabilire anche un limite massimo di SP per singola prestazione o per periodo, così non accumula più crediti di quanti desidera.</div>
+    <div class="control-strip">
+      <div class="control-item"><strong>Limite per scambio</strong><span>Decidi il massimo SP accettabile su ogni prestazione.</span></div>
+      <div class="control-item"><strong>Limite per periodo</strong><span>Puoi fissare un tetto mensile per non accumularne troppi.</span></div>
+      <div class="control-item"><strong>Sempre facoltativi</strong><span>Puoi scegliere quando usare gli SP e quando no.</span></div>
+    </div>
   </section>
 
-  <div class="section-head"><h3>ScambioPro Match</h3><span>La rete lavora per te</span></div>
+  <div class="section-head"><h3>ScambioPro Match</h3><span>La rete cerca per te</span></div>
   <section class="demo-box">
-    <h4 style="margin:0">Il sistema incrocia automaticamente “Offro” e “Cerco”</h4>
-    <div class="meta">Quando lo scambio diretto non è possibile, ScambioPro può individuare una catena compatibile tra più aderenti.</div>
+    <h4 style="margin:0">Il valore può circolare anche senza uno scambio diretto</h4>
     <div class="match-chain">
       <div class="match-person"><b>🦷 Dentista</b><span>cerca imbianchino</span></div><div class="match-arrow">→</div>
       <div class="match-person"><b>🎨 Imbianchino</b><span>cerca meccanico</span></div><div class="match-arrow">→</div>
       <div class="match-person"><b>🔧 Meccanico</b><span>cerca commercialista</span></div><div class="match-arrow">→</div>
       <div class="match-person"><b>📊 Commercialista</b><span>cerca dentista</span></div>
     </div>
-    <button class="btn secondary full" style="margin-top:12px" data-go="match">Vedi la demo del matching</button>
+    <div class="key-message"><b>Tu non devi trovare tutta la catena.</b> ScambioPro incrocia “Offro” e “Cerco” e ti segnala le opportunità compatibili.</div>
+    <button class="btn secondary full" style="margin-top:12px" data-go="match">Prova il matching</button>
   </section>
 
-  <div class="section-head"><h3>Vantaggio anche per chi compra</h3><span>Meno liquidità impegnata</span></div>
+  <div class="section-head"><h3>Anche chi compra usa meno liquidità</h3><span>Se possiede già SP</span></div>
   <div class="buyer-example">
-    <div><strong>Prestazione: 1.000 €</strong><span>Pagamento disponibile: <b>700 € + 300 SP</b>. Se il cliente possiede 300 SP, può usarli e conservare 300 € di liquidità.</span></div>
-    <div class="buyer-save">300 €<small>DI LIQUIDITÀ CONSERVATA</small></div>
+    <div><strong>Prestazione: 1.000 €</strong><span>Pagamento disponibile: <b>700 € + 300 SP</b>. Chi possiede già 300 SP utilizza 700 € di liquidità invece di 1.000 €.</span></div>
+    <div class="buyer-save">700 €<small>LIQUIDITÀ UTILIZZATA</small></div>
   </div>
 
-  <div class="section-head"><h3>Cosa vuoi fare?</h3><span>Prova la demo</span></div>
-  <div class="action-grid">
-    <button class="action-card" data-go="market"><div class="action-icon">⌕</div><strong>Cerco qualcosa</strong><small>Trova un professionista, un servizio o qualcosa da acquistare con SP.</small></button>
-    <button class="action-card" data-action="offer-wizard"><div class="action-icon">＋</div><strong>Offro qualcosa</strong><small>Pubblica ciò che sai fare e indica quanti SP vuoi ricevere.</small></button>
-    <button class="action-card" data-go="houses"><div class="action-icon">🏠</div><strong>Scambio casa</strong><small>Ospita qualcuno, guadagna SP oppure proponi uno scambio diretto.</small></button>
+  <div class="section-head"><h3>Fiducia e controllo</h3><span>Per scambiare con serenità</span></div>
+  <div class="mini-security">
+    <div><b>✓ Identità verificata</b><span>Profili e attività verificabili prima dello scambio.</span></div>
+    <div><b>★ Reputazione visibile</b><span>Recensioni, storico e scambi completati aiutano a scegliere.</span></div>
+    <div><b>⇄ Doppia conferma</b><span>Gli SP vengono registrati solo quando lo scambio è confermato.</span></div>
   </div>
 
-  <div class="section-head"><h3>Esempio di credito multilaterale</h3><span>Il cuore di ScambioPro</span></div>
-  <section class="card highlight">
-    <div class="simple-flow">
-      <div class="flow-step"><div class="flow-icon">🦷</div><div><strong>Mario riceve una prestazione</strong><span>Il dentista crea valore nella rete</span></div><div class="flow-value">+1.000 SP</div></div>
-      <div class="flow-step"><div class="flow-icon">🏖️</div><div><strong>Il dentista usa i suoi SP altrove</strong><span>Per esempio per un soggiorno</span></div><div class="flow-value">-700 SP</div></div>
-      <div class="flow-step"><div class="flow-icon">SP</div><div><strong>Gli restano</strong><span>Da usare per altri servizi della rete</span></div><div class="flow-value">300 SP</div></div>
+  <div class="section-head"><h3>ScambioCasa</h3><span>Una possibilità in più</span></div>
+  <div class="house-teaser"><div><strong>Usa la stessa rete anche per soggiorni e case</strong><span>Ospita e guadagna SP, oppure valuta uno scambio diretto quando destinazioni e date coincidono.</span></div><button class="btn secondary" data-go="houses">Esplora Case</button></div>
+
+  <div class="compact-section conversion-card">
+    <h3>Vuoi essere tra le prime attività ScambioPro?</h3>
+    <p>Crea la tua vetrina, indica cosa offri e cosa cerchi e prova come la rete può generare opportunità intorno alla tua attività. Nella demo puoi sperimentare senza registrazione.</p>
+    <div class="conversion-actions">
+      <button class="btn primary-cta" data-action="offer-wizard">Prova come attività</button>
+      <button class="btn secondary" data-go="market">Esplora le offerte</button>
     </div>
-    <div class="key-message"><b>Il punto chiave:</b> chi riceve SP non deve spenderli con la stessa persona che li ha generati. Il valore può circolare tra più membri della rete.</div>
-  </section>
-
-  <div class="sp-help">
-    <div class="sp-bubble">SP</div>
-    <div><strong>Cosa sono gli SP?</strong><p>Crediti interni usati per registrare il valore degli scambi. Nella demo, 100 SP rappresentano un valore di riferimento di 100 €.</p><button class="btn secondary small" style="margin-top:9px" data-action="explain-sp">Spiegamelo meglio</button></div>
+    <div class="founder-badge" style="margin-top:12px"><div class="ico">🏅</div><div><strong>Attività Fondatrice ScambioPro</strong><span>Nella futura fase pilota i primi aderenti potranno ottenere maggiore visibilità e contribuire a costruire la rete locale.</span></div></div>
   </div>
 
-  <div class="section-head"><h3>Sicurezza e controllo</h3><span>Prima di tutto la fiducia</span></div>
-  <div class="trust-grid">
-    <div class="trust-item"><b>✓ Identità verificata</b>Profili e attività controllati prima di scambiare.</div>
-    <div class="trust-item"><b>★ Recensioni e storico</b>Affidabilità, scambi completati e reputazione visibili.</div>
-    <div class="trust-item"><b>⇄ Doppia conferma</b>Gli SP si muovono solo quando lo scambio viene confermato.</div>
-  </div>
-  <div class="notice amber" style="margin-top:10px">Eventuali saldi negativi avranno limiti configurabili e saranno attivati solo dopo la necessaria verifica legale e regolamentare.</div>
-
-  <div class="section-head"><h3>Scambio casa</h3><span>Un'altra possibilità della rete</span></div>
-  <div class="simple-tabs">
-    <button class="simple-choice" data-go="houses" data-set-house="sp"><strong>🏠 Ospito e guadagno SP</strong><span>Una persona usa la mia casa. Con gli SP ricevuti posso soggiornare da un'altra persona.</span></button>
-    <button class="simple-choice" data-go="houses" data-set-house="direct"><strong>⇄ Scambio diretto</strong><span>Io vado a casa tua e tu vieni a casa mia, se date e destinazioni coincidono.</span></button>
-  </div>
-
-  <div class="section-head"><h3>Prime attività della rete</h3><span>Un vantaggio anche prima del primo scambio</span></div>
-  <div class="founder-badge"><div class="ico">🏅</div><div><strong>Attività Fondatrice ScambioPro</strong><span>In una fase pilota, i primi aderenti potranno ottenere maggiore visibilità e contribuire a costruire la rete locale.</span></div></div>
-
-  <div class="legal-note">ScambioPro è attualmente una demo concettuale. Funzioni, valori, indicatori di spendibilità e numeri mostrati sono esempi. Prima dell'attivazione reale saranno necessarie verifiche legali, fiscali, contrattuali e regolamentari applicabili.</div>`
+  <div class="legal-note">ScambioPro è attualmente una demo concettuale. Funzioni, valori, indicatori di spendibilità e numeri mostrati sono esempi. Prima dell'attivazione reale saranno necessarie le verifiche legali, fiscali, contrattuali e regolamentari applicabili.</div>`
 }
 function marketHTML(){
   const cats=['Tutti','Casa','Professionisti','Tempo libero'];
@@ -672,6 +663,7 @@ function bookHouse(id){const h=houses.find(x=>x.id===id);if(!h)return;const nigh
 function swapHouse(id){const h=houses.find(x=>x.id===id);if(!h)return;openModal('Proponi scambio diretto',`<div class="exchange-example"><div class="exchange-side"><span class="stay-chip">Tu offri</span><strong>Casa sul Lago</strong><div class="meta">7 notti</div></div><div class="exchange-arrow">⇄</div><div class="exchange-side"><span class="stay-chip">${h.location}</span><strong>${h.title}</strong><div class="meta">${h.available}</div></div></div><div class="notice" style="margin-top:12px">Nessun SP viene mosso finché i due proprietari non accettano date e condizioni.</div><button class="btn full" id="confirmSwap">Invia proposta demo</button>`);setTimeout(()=>{const c=document.getElementById('confirmSwap');if(c)c.onclick=()=>{state.houseRequests.push({id:h.id,type:'direct'});save();closeModal();toast('Proposta di scambio inviata nella demo.')}},0)}
 
 function handleAction(action){
+  if(action==='scroll-video'){document.getElementById('video-scambiopro')?.scrollIntoView({behavior:'smooth',block:'center'})}
   if(action==='offer-wizard'){
     openModal('Cosa vuoi offrire?',`<div class="notice">Bastano tre informazioni. Questa è una simulazione: non pubblica nulla realmente.</div><label class="meta">Tipo di offerta</label><select id="offerType" class="input"><option>Servizio professionale</option><option>Lavoro artigianale</option><option>Prodotto o bene</option><option>Casa / soggiorno</option></select><label class="meta" style="display:block;margin-top:10px">Descrizione</label><input id="offerDesc" class="input" placeholder="Es. imbiancatura appartamento"><label class="meta" style="display:block;margin-top:10px">Valore richiesto</label><input id="offerValue" class="input" type="number" value="500" min="1"><button class="btn full" style="margin-top:12px" id="publishOfferV5">Pubblica offerta demo</button>`);
     setTimeout(()=>{const p=document.getElementById('publishOfferV5');if(p)p.onclick=()=>{const d=document.getElementById('offerDesc')?.value||'Nuova offerta';const v=Number(document.getElementById('offerValue')?.value||500);closeModal();toast(d+' pubblicata per '+sp(v)+' nella demo.')}},0)
