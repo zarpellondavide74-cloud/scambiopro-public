@@ -374,9 +374,10 @@
       <p class="f-err" id="f-err" hidden>Compila i campi mancanti per continuare.</p>
 
       <div class="cta-row" style="margin-top:20px">
-        <button class="btn" type="button" id="send">Invia la richiesta</button>
+        <button class="btn" type="button" id="send">Invia su WhatsApp</button>
+        <button class="btn ghost" type="button" id="sendMail">Invia per email</button>
       </div>
-      <p class="f-hint" id="f-hint">La richiesta viene registrata subito. Ti ricontattiamo appena c'è qualcuno di compatibile.</p>
+      <p class="f-hint" id="f-hint">Si apre WhatsApp (o il programma di posta) con il messaggio già pronto: devi solo premere invio.</p>
     </form>
   </section>
 
@@ -425,10 +426,10 @@ function toast(msg){
 }
 
 /* ===================================================================
-   CONFIGURAZIONE — incolla qui l'indirizzo dell'app Google
-   (istruzioni passo passo nel file README.md)
+   CONFIGURAZIONE — recapiti dove arrivano le adesioni
    =================================================================== */
-const ENDPOINT = 'INCOLLA_QUI_URL_APP_GOOGLE';
+const WHATSAPP = '393522234956';
+const EMAIL    = 'davzac74@gmail.com';
 /* =================================================================== */
 
 const form = document.getElementById('form');
@@ -457,31 +458,40 @@ function raccogli(){
   return dati;
 }
 
-btn.addEventListener('click', async () => {
+function messaggio(d){
+  return [
+    'Nuova adesione ScambioPro',
+    '',
+    'Nome e attività: ' + d.nome,
+    'Dove: ' + d.zona,
+    'Offre: ' + d.offro,
+    'Cerca: ' + d.cerco,
+    'Conguaglio: ' + d.cong,
+    'Contatto: ' + d.contatto
+  ].join('\n');
+}
+
+btn.addEventListener('click', () => {
   const d = raccogli();
   if(!d) return;
+  const url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(messaggio(d));
+  const a = document.createElement('a');
+  a.href = url;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  hint.textContent = 'Si apre WhatsApp con il messaggio già scritto: premi invio per inviarlo.';
+  toast('Si apre WhatsApp: premi invio per completare.');
+});
 
-  btn.disabled = true;
-  btn.textContent = 'Invio in corso…';
-
-  try{
-    await fetch(ENDPOINT, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {'Content-Type': 'text/plain;charset=utf-8'},
-      body: JSON.stringify(d)
-    });
-    form.reset();
-    btn.textContent = 'Richiesta inviata ✓';
-    hint.textContent = 'Registrata. Ti ricontattiamo appena c\'è qualcuno di compatibile.';
-    toast('Richiesta registrata. Grazie!');
-    setTimeout(()=>{ btn.disabled = false; btn.textContent = 'Invia la richiesta'; }, 4000);
-  }catch(err){
-    btn.disabled = false;
-    btn.textContent = 'Invia la richiesta';
-    errBox.hidden = false;
-    errBox.textContent = 'Invio non riuscito. Riprova, oppure scrivici su WhatsApp al 352 2234956.';
-  }
+document.getElementById('sendMail').addEventListener('click', () => {
+  const d = raccogli();
+  if(!d) return;
+  window.location.href = 'mailto:' + EMAIL
+    + '?subject=' + encodeURIComponent('Adesione ScambioPro — ' + d.nome)
+    + '&body=' + encodeURIComponent(messaggio(d));
 });
 
 document.addEventListener('click', e => {
