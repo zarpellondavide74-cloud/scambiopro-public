@@ -1,521 +1,188 @@
 <!doctype html>
 <html lang="it">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<meta name="theme-color" content="#12312c" />
-<meta name="description" content="ScambioPro: pubblica cosa offri e cosa cerchi. Trova chi ha bisogno del tuo lavoro e ti offre il suo, con conguaglio in euro se i valori non coincidono. Prestazioni professionali a distanza, in tutta Italia." />
-<title>ScambioPro — Il tuo lavoro vale. Scambialo.</title>
-<link rel="canonical" href="https://scambiopro.it/" />
-
-<!-- anteprima quando il link viene condiviso su WhatsApp, LinkedIn, Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://scambiopro.it/" />
-<meta property="og:site_name" content="ScambioPro" />
-<meta property="og:locale" content="it_IT" />
-<meta property="og:title" content="Il tuo lavoro vale. Scambialo, non solo venderlo." />
-<meta property="og:description" content="Rete di professionisti che si scambiano prestazioni tra loro, con conguaglio in euro se i valori non coincidono. Adesione gratuita per i primi iscritti." />
-<meta property="og:image" content="https://scambiopro.it/anteprima.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta name="twitter:card" content="summary_large_image" />
-
-<!-- icona nella scheda del browser -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2312312d'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23eceee6' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12342f">
+<meta name="description" content="ScambioPro: trasforma ciò che non usi in ciò che ti serve. Scambia beni, servizi, disponibilità e capacità inutilizzata.">
+<title>ScambioPro — Trasforma ciò che non usi in ciò che ti serve</title>
 <style>
-  :root{
-    --ink:#12312c;
-    --ink-soft:#3d5b54;
-    --paper:#eceee6;
-    --paper-2:#f6f7f2;
-    --card:#ffffff;
-    --rule:#c9cfc2;
-    --mustard:#d9a520;
-    --stamp:#a33a2c;
-    --teal:#1f5f5b;
-    --r:4px;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0;background:var(--paper);color:var(--ink);
-    font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:16px;line-height:1.55;
-    background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);
-    background-size:28px 28px;background-position:-1px -1px;
-  }
-  body:before{content:"";position:fixed;inset:0;background:var(--paper);opacity:.86;pointer-events:none;z-index:0}
-  .wrap{position:relative;z-index:1;width:min(100%,760px);margin:0 auto;padding:0 20px 80px}
-  button{font:inherit;cursor:pointer}
-
-  /* ---- header ---- */
-  header{display:flex;justify-content:space-between;align-items:baseline;padding:26px 0 20px;border-bottom:2px solid var(--ink)}
-  .logo{font-family:"Instrument Serif",serif;font-size:27px;letter-spacing:-.01em}
-  .logo em{font-style:italic;color:var(--teal)}
-  .place{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
-
-  /* ---- hero ---- */
-  .hero{padding:44px 0 8px}
-  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--stamp);margin-bottom:18px}
-  h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(38px,8.5vw,62px);line-height:1.02;letter-spacing:-.02em;margin:0 0 20px;max-width:15ch}
-  h1 em{font-style:italic;color:var(--teal)}
-  .lede{font-size:17px;max-width:52ch;color:var(--ink-soft);margin:0 0 30px}
-
-  /* ---- SIGNATURE: la riga di permuta ---- */
-  .deal{
-    background:var(--card);border:1.5px solid var(--ink);border-radius:var(--r);
-    box-shadow:6px 6px 0 rgba(18,49,44,.13);overflow:hidden;margin:34px 0 12px
-  }
-  .deal-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 16px;border-bottom:1px dashed var(--rule);background:var(--paper-2)}
-  .deal-top span{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
-  .sides{display:grid;grid-template-columns:1fr auto 1fr}
-  .side{padding:20px 18px}
-  .side:last-child{text-align:right}
-  .side b{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--stamp);margin-bottom:9px;font-weight:500}
-  .side strong{display:block;font-family:"Instrument Serif",serif;font-weight:400;font-size:21px;line-height:1.15;margin-bottom:5px}
-  .side small{display:block;color:var(--ink-soft);font-size:12.5px}
-  .side .amt{font-family:"IBM Plex Mono",monospace;font-size:20px;font-weight:600;margin-top:12px;display:block}
-  .seam{width:0;border-left:1px dashed var(--rule);position:relative}
-  .seam:after{content:"⇄";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-    background:var(--card);color:var(--teal);font-size:17px;padding:7px 3px}
-  .settle{border-top:1px dashed var(--rule);padding:16px 18px;background:var(--paper-2)}
-  .settle-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
-  .settle-row span{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft)}
-  .settle-row .num{font-family:"IBM Plex Mono",monospace;font-size:26px;font-weight:600;color:var(--stamp);letter-spacing:-.01em}
-  input[type=range]{width:100%;margin:15px 0 6px;accent-color:var(--teal);height:22px}
-  .settle-note{font-size:12.5px;color:var(--ink-soft)}
-  .caption{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);text-align:center;margin-bottom:38px}
-
-  .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
-  .btn{border:1.5px solid var(--ink);background:var(--ink);color:var(--paper-2);padding:13px 20px;border-radius:var(--r);font-weight:500;font-size:15px;transition:transform .12s ease,box-shadow .12s ease}
-  .btn:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 rgba(18,49,44,.25)}
-  .btn.ghost{background:transparent;color:var(--ink)}
-  .btn:focus-visible{outline:2.5px solid var(--mustard);outline-offset:2px}
-
-  /* ---- sezioni ---- */
-  section{padding:52px 0 0}
-  .sec-label{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);padding-bottom:9px;border-bottom:1.5px solid var(--ink);margin-bottom:26px}
-  h2{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(27px,5.5vw,37px);line-height:1.1;margin:0 0 16px;letter-spacing:-.015em}
-  h2 em{font-style:italic;color:var(--teal)}
-  p{margin:0 0 15px}
-
-  .steps{display:grid;gap:2px;background:var(--rule);border:1.5px solid var(--ink);border-radius:var(--r);overflow:hidden}
-  .step{background:var(--card);padding:20px 18px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
-  .step .n{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--card);background:var(--teal);width:26px;height:26px;display:grid;place-items:center;border-radius:50%}
-  .step h3{font-family:"Instrument Serif",serif;font-weight:400;font-size:20px;margin:1px 0 4px}
-  .step p{margin:0;font-size:14.5px;color:var(--ink-soft)}
-
-  /* ---- storia di Mario ---- */
-  .story{background:var(--ink);color:var(--paper-2);border-radius:var(--r);padding:32px 26px;position:relative;overflow:hidden}
-  .story:before{content:"“";position:absolute;font-family:"Instrument Serif",serif;font-size:190px;line-height:1;color:rgba(217,165,32,.16);top:-24px;right:14px}
-  .story .sec-label{color:var(--mustard);border-color:rgba(255,255,255,.25);margin-bottom:20px}
-  .story p{position:relative;font-size:17.5px;line-height:1.6;max-width:46ch}
-  .story .said{font-family:"Instrument Serif",serif;font-style:italic;font-size:22px;line-height:1.4;color:var(--mustard);margin:20px 0}
-  .story .kicker{font-size:14.5px;color:rgba(246,247,242,.72);margin:0}
-
-  /* ---- annunci ---- */
-  .ads{display:grid;gap:12px}
-  .ad{background:var(--card);border:1.5px solid var(--ink);border-radius:var(--r);padding:17px 18px}
-  .ad-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:13px;padding-bottom:11px;border-bottom:1px dashed var(--rule)}
-  .ad-head strong{font-size:15px;font-weight:600}
-  .ad-head span{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
-  .ad-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .ad-grid div b{display:block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--stamp);margin-bottom:5px;font-weight:500}
-  .ad-grid div p{margin:0;font-size:14px}
-  .ad-foot{margin-top:14px;padding-top:12px;border-top:1px dashed var(--rule);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-  .conguaglio{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-soft)}
-  .conguaglio b{color:var(--ink);font-weight:600}
-  .mini{border:1.5px solid var(--ink);background:transparent;color:var(--ink);padding:8px 14px;border-radius:var(--r);font-size:13.5px}
-  .mini:hover{background:var(--ink);color:var(--paper-2)}
-  .mini:focus-visible{outline:2.5px solid var(--mustard);outline-offset:2px}
-
-  /* ---- nota + chiusura ---- */
-  .note{border-left:3px solid var(--mustard);padding:3px 0 3px 16px;font-size:14px;color:var(--ink-soft);margin-top:22px}
-  footer{margin-top:60px;padding-top:20px;border-top:2px solid var(--ink);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
-    font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
-
-  /* ---- form ---- */
-  .form{background:var(--card);border:1.5px solid var(--ink);border-radius:var(--r);padding:22px 20px;margin-top:24px;box-shadow:6px 6px 0 rgba(18,49,44,.13)}
-  .f-row{margin-bottom:16px}
-  .f-row label{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--stamp);margin-bottom:6px;font-weight:500}
-  .f-row input,.f-row textarea,.f-row select{
-    width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--paper-2);
-    border:1.5px solid var(--rule);border-radius:var(--r);padding:11px 12px;resize:vertical}
-  .f-row input::placeholder,.f-row textarea::placeholder{color:#9aa79f}
-  .f-row input:focus,.f-row textarea:focus,.f-row select:focus{outline:none;border-color:var(--teal);background:var(--card)}
-  .f-row input:focus-visible,.f-row textarea:focus-visible,.f-row select:focus-visible{outline:2.5px solid var(--mustard);outline-offset:1px}
-  .f-row .miss{border-color:var(--stamp)}
-  .f-err{color:var(--stamp);font-size:13.5px;margin:0}
-  .f-hint{font-size:12.5px;color:var(--ink-soft);margin:12px 0 0}
-  .ads-empty{background:var(--card);border:1.5px dashed var(--rule);border-radius:var(--r);padding:26px 20px;text-align:center;color:var(--ink-soft);font-size:14.5px;margin:0}
-
-  /* ---- categorie, stato, faq ---- */
-  .lede-2{color:var(--ink-soft);max-width:56ch;margin-bottom:22px}
-  .cats{display:grid;gap:12px;margin-bottom:18px}
-  .cat{background:var(--card);border:1.5px solid var(--ink);border-radius:var(--r);padding:18px}
-  .cat b{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--stamp);margin-bottom:9px;font-weight:500}
-  .cat p{margin:0;font-size:15px;line-height:1.7}
-  .status{background:var(--teal);color:var(--paper-2);border-radius:var(--r);padding:20px}
-  .status b{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--mustard);margin-bottom:8px;font-weight:500}
-  .status p{margin:0;font-size:15px;max-width:52ch}
-  .faq{display:grid;gap:2px;background:var(--rule);border:1.5px solid var(--ink);border-radius:var(--r);overflow:hidden}
-  .q{background:var(--card);padding:18px}
-  .q b{display:block;font-family:"Instrument Serif",serif;font-weight:400;font-size:19px;margin-bottom:6px}
-  .q p{margin:0;font-size:14.5px;color:var(--ink-soft)}
-
-  .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(140%);z-index:50;
-    background:var(--ink);color:var(--paper-2);padding:13px 20px;border-radius:var(--r);font-size:14px;
-    box-shadow:0 8px 24px rgba(18,49,44,.3);transition:transform .3s cubic-bezier(.2,.9,.3,1.2);max-width:88vw}
-  .toast.on{transform:translateX(-50%) translateY(0)}
-
-  @media(max-width:560px){
-    .sides{grid-template-columns:1fr}
-    .side:last-child{text-align:left;border-top:1px dashed var(--rule)}
-    .seam{width:auto;height:0;border-left:0;border-top:1px dashed var(--rule)}
-    .seam:after{display:none}
-    .ad-grid{grid-template-columns:1fr;gap:13px}
-    .story{padding:26px 20px}
-  }
-  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
-
-  /* ---- schermi grandi: sfrutta la larghezza ---- */
-  @media(min-width:1000px){
-    .wrap{width:min(100%,1240px);padding:0 48px 100px}
-    header{padding:34px 0 24px}
-    .logo{font-size:32px}
-
-    /* hero e riquadro accordo affiancati */
-    .hero{padding:64px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-    .hero .eyebrow{grid-column:1/-1;margin-bottom:0}
-    h1{font-size:clamp(48px,4.4vw,64px);margin:0}
-    .lede{font-size:18px;margin:0}
-    .deal{margin:30px 0 10px}
-    .caption{text-align:left;margin-bottom:46px}
-    .cta-row{margin-bottom:14px}
-
-    section{padding:78px 0 0}
-    h2{font-size:40px}
-    .sec-label{margin-bottom:32px}
-
-    /* tre passi in riga */
-    .steps{grid-template-columns:repeat(3,1fr)}
-    .step{grid-template-columns:1fr;gap:12px}
-
-    .story{padding:46px 44px}
-    .story p{font-size:19px;max-width:56ch}
-    .story .said{font-size:27px}
-    .story:before{font-size:250px;right:40px}
-
-    /* annunci a due colonne */
-    .ads{grid-template-columns:1fr 1fr;gap:14px}
-    .cats{grid-template-columns:1fr 1fr;gap:14px}
-    .faq{grid-template-columns:repeat(3,1fr)}
-    .status{padding:26px 30px}
-    .note{max-width:70ch}
-
-    /* modulo a due colonne */
-    .form{padding:34px 32px;display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
-    .form .f-row:nth-child(3),
-    .form .f-row:nth-child(4){grid-column:1/-1}
-    .f-err,.form .cta-row,.f-hint{grid-column:1/-1}
-  }
+:root{--ink:#12342f;--green:#2f6e63;--paper:#f3f2eb;--card:#fff;--line:#cbd2c8;--red:#bd654f;--gold:#d4a62e;--muted:#60736e}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif}
+body:before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(18,52,47,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(18,52,47,.04) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+.wrap{position:relative;width:min(100%,900px);margin:auto;padding:0 22px 70px}
+header{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:22px 0 17px;border-bottom:2px solid var(--ink);background:rgba(243,242,235,.95);backdrop-filter:blur(12px)}
+.logo{font:italic 31px Georgia,serif}.logo span{color:var(--green)}.tag{font:10px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);text-align:right}
+.hero{padding:55px 0 22px}.eyebrow{font:800 10px ui-monospace,monospace;letter-spacing:.21em;text-transform:uppercase;color:var(--red)}
+h1,h2,h3{font-family:Georgia,serif;font-weight:400}h1{font-size:clamp(44px,8vw,77px);line-height:.98;letter-spacing:-.045em;margin:20px 0 24px;max-width:820px}h1 em,h2 em{color:var(--green)}
+.lead{font-size:19px;line-height:1.58;color:#516963;max-width:760px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.btn{border:1.7px solid var(--ink);background:transparent;color:var(--ink);padding:12px 18px;border-radius:7px;font-weight:800;text-decoration:none;cursor:pointer;display:inline-flex;justify-content:center;align-items:center;min-height:48px}.btn.primary{background:var(--ink);color:#fff}.btn.small{padding:8px 12px;min-height:38px;font-size:12px}.proof{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}.proof span{font-size:10px;padding:6px 9px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.55);color:var(--muted)}
+section{padding-top:62px}.head{display:flex;justify-content:space-between;gap:15px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:11px;margin-bottom:26px}.head h2{font-size:clamp(31px,5vw,45px);line-height:1.05;margin:0}.head span{font:10px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);text-align:right}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.card{background:var(--card);border:1.5px solid var(--ink);border-radius:9px;padding:17px;box-shadow:4px 4px 0 rgba(18,52,47,.06)}.card .ico{font-size:24px}.card strong{display:block;margin:9px 0 5px}.card p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+.example{background:var(--card);border:1.7px solid var(--ink);border-radius:9px;overflow:hidden;box-shadow:7px 7px 0 rgba(18,52,47,.08)}.exhead{display:flex;justify-content:space-between;padding:11px 16px;border-bottom:1px dashed var(--line);background:#faf9f4;font:10px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.exgrid{display:grid;grid-template-columns:1fr 44px 1fr;align-items:center}.side{padding:24px}.side.r{text-align:right}.side b{display:block;font:800 9px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.15em;color:var(--red)}.side h3{font-size:27px;margin:9px 0 4px}.side p{margin:0;color:var(--muted);font-size:13px}.amt{font:900 28px ui-monospace,monospace;margin-top:15px}.swap{text-align:center;font-size:27px;color:var(--green)}
+.settle{padding:19px;border-top:1px dashed var(--line);background:#faf9f4}.settlerow{display:flex;justify-content:space-between;align-items:end}.settlerow span{font:10px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}.settlerow strong{font:900 30px ui-monospace,monospace;color:var(--red)}input[type=range]{width:100%;accent-color:var(--green);margin:14px 0 6px}.settle p{margin:0;color:var(--muted);font-size:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.mode h3,.step h3{font-size:24px;margin:8px 0 6px}.mode b{font:10px ui-monospace,monospace;color:var(--red)}.mode p,.step p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}.n{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font:900 11px ui-monospace,monospace}
+.toolbar{display:grid;grid-template-columns:1fr 160px 160px;gap:8px;margin-bottom:12px}.field,select,textarea,input[type=text]{width:100%;border:1.5px solid var(--line);border-radius:7px;padding:11px 12px;background:#fff;color:var(--ink);outline:none}.field:focus,select:focus,textarea:focus,input:focus{border-color:var(--green)}
+.ads{display:grid;gap:11px}.ad{background:#fff;border:1.5px solid var(--ink);border-radius:9px;padding:17px}.adtop{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--line);padding-bottom:11px}.adtop strong{display:block}.adtop small{color:var(--muted)}.badges{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.badge{font-size:9px;font-weight:800;padding:5px 8px;border-radius:999px;background:#e3f0eb;color:var(--green)}.badge.alt{background:#e9eff3;color:#416f86}
+.adgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:14px 0}.adgrid b{display:block;font:800 9px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--red);margin-bottom:5px}.adgrid p{margin:0;font-size:13px;color:#425a54;line-height:1.5}.adfoot{display:flex;justify-content:space-between;gap:12px;align-items:center;border-top:1px dashed var(--line);padding-top:11px;flex-wrap:wrap}.price{font:11px ui-monospace,monospace;border:1px solid var(--line);border-radius:999px;padding:6px 8px}.empty{display:none;padding:22px;border:1px dashed var(--line);text-align:center;color:var(--muted)}
+.world{background:var(--ink);color:#fff;border-radius:9px;padding:27px;position:relative;overflow:hidden}.world:after{content:"🌍";position:absolute;right:20px;top:10px;font-size:100px;opacity:.11}.world h2{font-size:38px;margin:0 0 12px}.world p{max-width:700px;color:#d9e6e2;line-height:1.6}.world strong{color:#f0c957}
+.form{background:#fff;border:1.7px solid var(--ink);border-radius:9px;padding:20px;box-shadow:7px 7px 0 rgba(18,52,47,.08)}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.f{display:grid;gap:5px}.f.full{grid-column:1/-1}label{font:800 9px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.13em;color:var(--muted)}textarea{min-height:78px;resize:vertical}.checks{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.check{border:1px solid var(--line);border-radius:7px;padding:9px;background:#faf9f4;font-size:11px;color:var(--muted)}.note{margin-top:12px;font-size:11px;color:#74817d;line-height:1.5}.success{display:none;margin-top:11px;padding:11px;background:#e6f2ed;border-radius:7px;font-size:12px;font-weight:700}
+.legal{margin-top:19px;border-left:4px solid var(--gold);padding:10px 14px;background:rgba(255,255,255,.55);color:var(--muted);font-size:12px;line-height:1.5}
+footer{margin-top:60px;padding-top:18px;border-top:2px solid var(--ink);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:9px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:18px;transform:translate(-50%,100px);opacity:0;background:var(--ink);color:#fff;padding:10px 14px;border-radius:999px;font-size:11px;transition:.2s;z-index:50}.toast.on{transform:translate(-50%,0);opacity:1}
+@media(max-width:760px){.grid4{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr}}
+@media(max-width:560px){.wrap{padding:0 16px 50px}.tag{font-size:8px;max-width:145px}.lead{font-size:17px}.grid4,.formgrid,.checks{grid-template-columns:1fr}.f.full{grid-column:auto}.exgrid{grid-template-columns:1fr}.side.r{text-align:left}.swap{transform:rotate(90deg)}.head{align-items:flex-start;flex-direction:column}.head span{text-align:left}.adgrid{grid-template-columns:1fr}.badges{justify-content:flex-start}.btn{width:100%}}
 </style>
 </head>
 <body>
 <div class="wrap">
+<header><div class="logo">Scambio<span>Pro</span></div><div class="tag">Scambio · Conguaglio · Vendita</div></header>
 
-  <header>
-    <div class="logo">Scambio<em>Pro</em></div>
-    <div class="place">Professionisti · Tutta Italia</div>
-  </header>
-
-  <div class="hero">
-    <div class="eyebrow">Scambio di prestazioni tra professionisti</div>
-    <h1>Il tuo lavoro vale. <em>Scambialo</em>, non solo venderlo.</h1>
-    <p class="lede">C'è un professionista che ha bisogno di quello che sai fare, e sa fare qualcosa che serve a te. Prestazioni che si svolgono a distanza: non importa dove siete. ScambioPro vi mette in contatto, il resto lo decidete voi due — anche con un conguaglio in euro se i valori non coincidono.</p>
-  </div>
-
-  <!-- SIGNATURE -->
-  <div class="deal">
-    <div class="deal-top"><span>Accordo diretto</span><span id="dealDate">Esempio</span></div>
-    <div class="sides">
-      <div class="side">
-        <b>Tu offri</b>
-        <strong>Contabilità annuale</strong>
-        <small>Preventivo concordato</small>
-        <span class="amt">1.000 €</span>
-      </div>
-      <div class="seam"></div>
-      <div class="side">
-        <b>Lui offre</b>
-        <strong>Sito web e logo</strong>
-        <small>Lavoro valutato insieme</small>
-        <span class="amt" id="hisAmt">600 €</span>
-      </div>
-    </div>
-    <div class="settle">
-      <div class="settle-row">
-        <span>Conguaglio in euro</span>
-        <span class="num" id="settleNum">400 €</span>
-      </div>
-      <input type="range" id="slider" min="0" max="1000" step="50" value="600" aria-label="Valore del lavoro offerto in cambio">
-      <p class="settle-note" id="settleNote">Sposta il cursore: più vale il suo lavoro, meno euro passano di mano.</p>
-    </div>
-  </div>
-  <p class="caption">↑ Prova a spostarlo</p>
-
-  <div class="cta-row">
-    <button class="btn" data-go="pubblica">Pubblica cosa offri</button>
-    <button class="btn ghost" data-go="come">Guarda come funziona</button>
-  </div>
-
-  <section id="come">
-    <div class="sec-label">Come funziona</div>
-    <div class="steps">
-      <div class="step">
-        <div class="n">1</div>
-        <div>
-          <h3>Racconta cosa offri</h3>
-          <p>La tua prestazione professionale, quella che sai fare meglio. Basta questo: cosa offri, cosa cerchi, quanto vale più o meno.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="n">2</div>
-        <div>
-          <h3>Trova chi ti serve</h3>
-          <p>ScambioPro ti mostra chi ha pubblicato qualcosa di compatibile — ovunque si trovi, visto che il lavoro si svolge a distanza.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="n">3</div>
-        <div>
-          <h3>Accordatevi voi due</h3>
-          <p>Vi mettete in contatto e decidete insieme: alla pari, oppure con un conguaglio in euro. Nessun intermediario, nessuna moneta da spendere altrove.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="story">
-      <div class="sec-label">Da dove nasce</div>
-      <p>Un paziente aveva un preventivo da 1.000 € per rimettere a posto i denti, ma non aveva la liquidità. Mi ha detto:</p>
-      <p class="said">«Ti ritinteggio lo studio per 600 €, e gli altri 400 te li do in contanti.»</p>
-      <p class="kicker">È lo scambio più semplice che esista: due persone, due bisogni che si incontrano. ScambioPro fa succedere lo stesso tra professionisti di tutta Italia, per quelle prestazioni che si svolgono a distanza — dove la distanza non è mai un ostacolo.</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-label">Cosa si scambia</div>
-    <h2>Prestazioni che <em>non hanno distanza</em></h2>
-    <p class="lede-2">Tutto quello che si può fare da remoto, con un cliente a Milano come a Palermo. Da un lato gli studi professionali, dall'altro chi fornisce i servizi di cui ogni studio ha bisogno.</p>
-
-    <div class="cats">
-      <div class="cat">
-        <b>Studi professionali</b>
-        <p>Commercialisti · Avvocati · Consulenti del lavoro · Architetti · Ingegneri · Consulenti fiscali · Periti</p>
-      </div>
-      <div class="cat">
-        <b>Servizi per gli studi</b>
-        <p>Siti web · Grafica e logo · Gestione social · Copywriting · Video e foto · SEO · Traduzioni · Formazione</p>
-      </div>
-    </div>
-
-    <div class="status">
-      <b>Gruppo in formazione</b>
-      <p>ScambioPro sta raccogliendo le prime adesioni. Chi entra ora è tra i fondatori: adesione gratuita per il primo anno e priorità sui primi abbinamenti.</p>
-    </div>
-
-    <p class="note">Ogni scambio resta un accordo diretto tra le parti, regolarmente fatturato da entrambe come qualsiasi altra prestazione. ScambioPro mette in contatto: non gestisce denaro, saldi né crediti interni.</p>
-  </section>
-
-  <section>
-    <div class="sec-label">Domande frequenti</div>
-    <h2>Le tre cose <em>che tutti chiedono</em></h2>
-    <div class="faq">
-      <div class="q">
-        <b>Devo comunque fatturare?</b>
-        <p>Sì. La permuta è un'operazione come le altre: entrambi fatturate la vostra prestazione al valore concordato, con l'IVA che vi compete. Cambia il modo di regolare il corrispettivo, non gli obblighi fiscali.</p>
-      </div>
-      <div class="q">
-        <b>E se i valori non coincidono?</b>
-        <p>Si salda la differenza in euro, tra voi due. È il conguaglio: nessun credito interno, nessuna moneta da spendere altrove.</p>
-      </div>
-      <div class="q">
-        <b>Chi mi garantisce che l'altro lavori bene?</b>
-        <p>Le adesioni vengono verificate una a una (partita IVA e attività reale) e ogni scambio concluso lascia una valutazione visibile agli altri membri.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="pubblica">
-    <div class="sec-label">Partecipa</div>
-    <h2>Serve solo <em>una riga</em> per iniziare</h2>
-    <p>Stiamo formando il primo gruppo di professionisti. Scrivi cosa offri e cosa cerchi: appena arriva qualcuno di compatibile, ti avvisiamo. L'adesione è gratuita per il primo anno; dal secondo la quota sarà di 120 € annui.</p>
-
-    <form class="form" id="form" novalidate>
-      <div class="f-row">
-        <label for="f-nome">Nome e attività</label>
-        <input id="f-nome" name="nome" required placeholder="Elena Bianchi · Commercialista">
-      </div>
-      <div class="f-row">
-        <label for="f-zona">Dove sei</label>
-        <input id="f-zona" name="zona" required placeholder="Bologna">
-      </div>
-      <div class="f-row">
-        <label for="f-offro">Cosa offri</label>
-        <textarea id="f-offro" name="offro" rows="2" required placeholder="Contabilità e dichiarazioni per ditte individuali"></textarea>
-      </div>
-      <div class="f-row">
-        <label for="f-cerco">Cosa cerchi</label>
-        <textarea id="f-cerco" name="cerco" rows="2" required placeholder="Sito web, logo, gestione social"></textarea>
-      </div>
-      <div class="f-row">
-        <label for="f-cong">Conguaglio in euro che accetteresti</label>
-        <select id="f-cong" name="cong">
-          <option>Solo alla pari, senza conguaglio</option>
-          <option selected>Fino a 250 €</option>
-          <option>Fino a 500 €</option>
-          <option>Fino a 1.000 €</option>
-          <option>Da valutare caso per caso</option>
-        </select>
-      </div>
-      <div class="f-row">
-        <label for="f-contatto">Il tuo contatto</label>
-        <input id="f-contatto" name="contatto" required placeholder="Telefono o email">
-      </div>
-
-      <p class="f-err" id="f-err" hidden>Compila i campi mancanti per continuare.</p>
-
-      <div class="cta-row" style="margin-top:20px">
-        <button class="btn" type="button" id="send">Invia su WhatsApp</button>
-        <button class="btn ghost" type="button" id="sendMail">Invia per email</button>
-      </div>
-      <p class="f-hint" id="f-hint">Si apre WhatsApp (o il programma di posta) con il messaggio già pronto: devi solo premere invio.</p>
-    </form>
-  </section>
-
-  <footer>
-    <span>ScambioPro</span>
-    <span>Professionisti · Tutta Italia</span>
-  </footer>
+<div class="hero">
+  <div class="eyebrow">Marketplace di valore inutilizzato</div>
+  <h1>Trasforma ciò che non usi in <em>ciò che ti serve.</em></h1>
+  <p class="lead">Beni, servizi, disponibilità e capacità inutilizzata. Pubblica ciò che hai, indica ciò che cerchi e lascia che ScambioPro trovi possibili compatibilità — vicino a te oppure nel resto del mondo.</p>
+  <div class="actions"><a class="btn primary" href="#pubblica">Pubblica cosa offri</a><a class="btn" href="#market">Esplora gli scambi</a></div>
+  <div class="proof"><span>✓ Scambio diretto</span><span>✓ Conguaglio opzionale</span><span>✓ Anche vendita</span><span>✓ Locale, spedibile o remoto</span></div>
 </div>
 
+<section>
+  <div class="head"><h2>Non solo lavoro. <em>Qualsiasi valore inutilizzato.</em></h2><span>Cosa puoi pubblicare</span></div>
+  <div class="grid4">
+    <div class="card"><div class="ico">📦</div><strong>Stock e merce</strong><p>Rimanenze, prodotti invenduti, materiali e campionari.</p></div>
+    <div class="card"><div class="ico">🛠️</div><strong>Attrezzature</strong><p>Strumenti, arredi, macchinari e oggetti che non usi.</p></div>
+    <div class="card"><div class="ico">🏨</div><strong>Disponibilità</strong><p>Camere vuote, postazioni, spazi e capacità inutilizzata.</p></div>
+    <div class="card"><div class="ico">💼</div><strong>Servizi</strong><p>Prestazioni locali o digitali, consulenze e competenze.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="head"><h2>Un esempio <em>concreto</em></h2><span>Hotel ↔ Fotografo</span></div>
+  <div class="example">
+    <div class="exhead"><span>Possibile scambio</span><span>Valori indicativi</span></div>
+    <div class="exgrid">
+      <div class="side"><b>Hotel offre</b><h3>3 notti in bassa stagione</h3><p>Camere che potrebbero restare vuote.</p><div class="amt">600 €</div></div>
+      <div class="swap">⇄</div>
+      <div class="side r"><b>Fotografo offre</b><h3>Servizio fotografico</h3><p>Foto professionali per sito e social.</p><div class="amt" id="photo">400 €</div></div>
+    </div>
+    <div class="settle"><div class="settlerow"><span>Conguaglio in euro</span><strong id="cash">200 €</strong></div><input id="slider" type="range" min="0" max="600" step="50" value="400"><p id="snote">Il servizio copre 400 € del valore delle notti. La differenza può essere regolata con 200 €.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="head"><h2>Tre modi di <em>chiudere l'accordo</em></h2><span>Decidono le parti</span></div>
+  <div class="grid3">
+    <div class="card mode"><b>01</b><h3>Scambio</h3><p>I valori sono simili e le parti si accordano senza denaro.</p></div>
+    <div class="card mode"><b>02</b><h3>Scambio + €</h3><p>Se i valori non coincidono, si può aggiungere un conguaglio in euro.</p></div>
+    <div class="card mode"><b>03</b><h3>Vendita</h3><p>Se non c'è reciprocità, l'inserzionista può indicare che accetta anche una vendita.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="head"><h2>Come funziona</h2><span>Semplice</span></div>
+  <div class="grid3">
+    <div class="card step"><div class="n">1</div><h3>Pubblica</h3><p>Scrivi cosa offri, cosa cerchi, valore e modalità.</p></div>
+    <div class="card step"><div class="n">2</div><h3>Trova compatibilità</h3><p>ScambioPro incrocia Offro e Cerco e mostra opportunità interessanti.</p></div>
+    <div class="card step"><div class="n">3</div><h3>Accordatevi</h3><p>Contatto diretto: scambio, conguaglio oppure vendita.</p></div>
+  </div>
+</section>
+
+<section id="market">
+  <div class="head"><h2>Marketplace <em>demo</em></h2><span>Esempi</span></div>
+  <div class="toolbar">
+    <input id="search" class="field" type="text" placeholder="Cerca hotel, computer, grafica...">
+    <select id="type"><option value="">Tutte le categorie</option><option value="merce">Merce</option><option value="servizi">Servizi</option><option value="spazi">Disponibilità</option><option value="attrezzature">Attrezzature</option></select>
+    <select id="geo"><option value="">Ovunque</option><option value="locale">Locale</option><option value="spedibile">Spedibile / remoto</option></select>
+  </div>
+  <div class="ads">
+    <article class="ad" data-type="spazi" data-geo="locale" data-q="hotel cattolica notti fotografo manutenzione">
+      <div class="adtop"><div><strong>Hotel Aurora</strong><small>Cattolica · Italia</small></div><div class="badges"><span class="badge">Locale</span><span class="badge">Scambio + €</span></div></div>
+      <div class="adgrid"><div><b>Offro</b><p>3 notti in bassa stagione.</p></div><div><b>Cerco</b><p>Foto, manutenzione, arredi o grafica.</p></div></div>
+      <div class="adfoot"><span class="price">Valore 600 €</span><a href="#pubblica" class="btn small">Proponi uno scambio</a></div>
+    </article>
+    <article class="ad" data-type="merce" data-geo="spedibile" data-q="stock lampade milano notebook monitor ecommerce">
+      <div class="adtop"><div><strong>LineaCasa Store</strong><small>Milano · Italia</small></div><div class="badges"><span class="badge alt">Spedibile</span><span class="badge">Scambio / vendita</span></div></div>
+      <div class="adgrid"><div><b>Offro</b><p>18 lampade da esposizione, nuove.</p></div><div><b>Cerco</b><p>Notebook, monitor o servizio e-commerce.</p></div></div>
+      <div class="adfoot"><span class="price">Valore 1.400 €</span><a href="#pubblica" class="btn small">Proponi uno scambio</a></div>
+    </article>
+    <article class="ad" data-type="merce" data-geo="locale" data-q="piastrelle rimini utensili trapano scaffali">
+      <div class="adtop"><div><strong>EdilRomagna</strong><small>Rimini · Italia</small></div><div class="badges"><span class="badge">Locale</span><span class="badge">Scambio</span></div></div>
+      <div class="adgrid"><div><b>Offro</b><p>30 m² di piastrelle avanzate da un cantiere.</p></div><div><b>Cerco</b><p>Utensili, trapano professionale o scaffalature.</p></div></div>
+      <div class="adfoot"><span class="price">Valore 750 €</span><a href="#pubblica" class="btn small">Proponi uno scambio</a></div>
+    </article>
+    <article class="ad" data-type="servizi" data-geo="spedibile" data-q="barcellona designer logo grafica consulenza traduzioni soggiorno">
+      <div class="adtop"><div><strong>Marta · Brand Designer</strong><small>Barcellona · Spagna</small></div><div class="badges"><span class="badge alt">Remoto</span><span class="badge">Scambio + €</span></div></div>
+      <div class="adgrid"><div><b>Offro</b><p>Logo, identità visiva e kit social.</p></div><div><b>Cerco</b><p>Consulenza, traduzioni o soggiorni brevi.</p></div></div>
+      <div class="adfoot"><span class="price">Valore 900 €</span><a href="#pubblica" class="btn small">Proponi uno scambio</a></div>
+    </article>
+  </div>
+  <div class="empty" id="empty">Nessun annuncio demo corrisponde ai filtri.</div>
+</section>
+
+<section>
+  <div class="world"><div class="eyebrow" style="color:#efc957">Visione ScambioPro</div><h2>Locale quando serve. <em style="color:#efc957">Globale quando si può.</em></h2><p>Un mobile può avere senso a 10 km. Un logo può essere scambiato tra Italia e Spagna. Una camera d'hotel può interessare a qualcuno che vive in un altro Paese. Ogni annuncio può indicare se è locale, spedibile o realizzabile a distanza.</p><strong>Una rete mondiale, senza obbligare ogni scambio a essere mondiale.</strong></div>
+</section>
+
+<section id="pubblica">
+  <div class="head"><h2>Pubblica il tuo <em>primo annuncio</em></h2><span>Test gratuito</span></div>
+  <form class="form" id="form">
+    <div class="formgrid">
+      <div class="f"><label>Nome / attività</label><input id="name" type="text" required placeholder="Es. Hotel Aurora"></div>
+      <div class="f"><label>Paese / città</label><input id="place" type="text" required placeholder="Es. Cattolica, Italia"></div>
+      <div class="f full"><label>Cosa offri</label><textarea id="offer" required placeholder="Es. 3 notti in bassa stagione"></textarea></div>
+      <div class="f full"><label>Cosa cerchi</label><textarea id="seek" required placeholder="Es. servizio fotografico, arredi..."></textarea></div>
+      <div class="f"><label>Valore indicativo</label><input id="amount" type="text" placeholder="Es. 600 €"></div>
+      <div class="f"><label>Contatto</label><input id="contact" type="text" required placeholder="Telefono, WhatsApp o email"></div>
+      <div class="f full"><label>Modalità</label><div class="checks"><label class="check"><input id="local" type="checkbox" checked> Locale</label><label class="check"><input id="ship" type="checkbox"> Spedibile</label><label class="check"><input id="remote" type="checkbox"> Remoto</label></div></div>
+      <div class="f full"><label>Accetto</label><div class="checks"><label class="check"><input id="swap" type="checkbox" checked> Scambio</label><label class="check"><input id="cong" type="checkbox" checked> Scambio + €</label><label class="check"><input id="sale" type="checkbox"> Vendita</label></div></div>
+    </div>
+    <div class="actions"><button class="btn primary" type="submit">Prepara annuncio</button><button class="btn" type="button" id="copy">Copia testo</button></div>
+    <p class="note">Questa demo non salva dati su un server: prepara il testo dell'annuncio e usa il menu di condivisione del telefono.</p>
+    <div class="success" id="success">Annuncio pronto.</div>
+  </form>
+  <div class="legal">ScambioPro, in questa versione, mette in contatto gli utenti e non gestisce direttamente pagamenti, saldi o crediti. Le condizioni dell'accordo restano tra le parti.</div>
+</section>
+
+<footer><span>ScambioPro</span><span>Trasforma ciò che non usi in ciò che ti serve</span></footer>
+</div>
 <div class="toast" id="toast"></div>
 
 <script>
-const eur = n => new Intl.NumberFormat('it-IT').format(n) + ' €';
+const fmt=n=>new Intl.NumberFormat('it-IT').format(n)+' €';
+const slider=document.getElementById('slider'),photo=document.getElementById('photo'),cash=document.getElementById('cash'),snote=document.getElementById('snote');
+slider.oninput=()=>{const v=+slider.value,d=600-v;photo.textContent=fmt(v);cash.textContent=d?fmt(d):'Nessuno';snote.textContent=d?'Il servizio copre '+fmt(v)+' del valore delle notti. La differenza può essere regolata con '+fmt(d)+'.':'I valori coincidono: le parti possono accordarsi per uno scambio alla pari.'};
 
-/* --- signature: conguaglio dinamico --- */
-const slider = document.getElementById('slider');
-const hisAmt = document.getElementById('hisAmt');
-const settleNum = document.getElementById('settleNum');
-const settleNote = document.getElementById('settleNote');
-const TOTAL = 1000;
+const ads=[...document.querySelectorAll('.ad')],search=document.getElementById('search'),type=document.getElementById('type'),geo=document.getElementById('geo'),empty=document.getElementById('empty');
+function filter(){const q=search.value.toLowerCase().trim(),t=type.value,g=geo.value;let n=0;ads.forEach(a=>{const ok=(!q||a.dataset.q.includes(q))&&(!t||a.dataset.type===t)&&(!g||a.dataset.geo===g);a.style.display=ok?'':'none';if(ok)n++});empty.style.display=n?'none':'block'}search.oninput=filter;type.onchange=filter;geo.onchange=filter;
 
-function updateDeal(){
-  const his = Number(slider.value);
-  const diff = TOTAL - his;
-  hisAmt.textContent = eur(his);
-  settleNum.textContent = diff === 0 ? 'Nessuno' : eur(diff);
-  if(diff === 0){
-    settleNote.textContent = 'I due lavori si equivalgono: scambio alla pari, non passa denaro.';
-  } else if(his === 0){
-    settleNote.textContent = 'Nessuno scambio: il preventivo si paga tutto in euro, come sempre.';
-  } else {
-    settleNote.textContent = 'Il suo lavoro copre ' + eur(his) + ' del preventivo. La differenza si salda in euro.';
-  }
-}
-slider.addEventListener('input', updateDeal);
-updateDeal();
+let timer;function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');clearTimeout(timer);timer=setTimeout(()=>e.classList.remove('on'),2400)}
+const form=document.getElementById('form');
+function text(){const v=id=>document.getElementById(id).value.trim(),where=[],modes=[];if(local.checked)where.push('locale');if(ship.checked)where.push('spedibile');if(remote.checked)where.push('remoto');if(swap.checked)modes.push('scambio');if(cong.checked)modes.push('scambio + conguaglio');if(sale.checked)modes.push('vendita');return `Nuovo annuncio ScambioPro
 
-/* --- toast --- */
-let t;
-function toast(msg){
-  const el = document.getElementById('toast');
-  el.textContent = msg;
-  el.classList.add('on');
-  clearTimeout(t);
-  t = setTimeout(()=> el.classList.remove('on'), 3200);
-}
+NOME / ATTIVITÀ: ${v('name')}
+DOVE: ${v('place')}
 
-/* ===================================================================
-   CONFIGURAZIONE — recapiti dove arrivano le adesioni
-   =================================================================== */
-const WHATSAPP = '393522234956';
-const EMAIL    = 'davzac74@gmail.com';
-/* =================================================================== */
+OFFRO:
+${v('offer')}
 
-const form = document.getElementById('form');
-const errBox = document.getElementById('f-err');
-const btn = document.getElementById('send');
-const hint = document.getElementById('f-hint');
+CERCO:
+${v('seek')}
 
-function raccogli(){
-  const campi = ['nome','zona','offro','cerco','cong','contatto'];
-  const dati = {};
-  let mancanti = 0;
-  campi.forEach(c => {
-    const el = form.elements[c];
-    const v = (el.value || '').trim();
-    dati[c] = v;
-    const obbligatorio = el.hasAttribute('required');
-    el.classList.toggle('miss', obbligatorio && !v);
-    if(obbligatorio && !v) mancanti++;
-  });
-  errBox.hidden = mancanti === 0;
-  if(mancanti){
-    errBox.textContent = 'Compila i campi mancanti per continuare.';
-    form.querySelector('.miss').focus();
-    return null;
-  }
-  return dati;
-}
+VALORE:
+${v('amount')||'Da concordare'}
 
-function messaggio(d){
-  return [
-    'Nuova adesione ScambioPro',
-    '',
-    'Nome e attività: ' + d.nome,
-    'Dove: ' + d.zona,
-    'Offre: ' + d.offro,
-    'Cerca: ' + d.cerco,
-    'Conguaglio: ' + d.cong,
-    'Contatto: ' + d.contatto
-  ].join('\n');
-}
+MODALITÀ:
+${where.join(', ')||'Da concordare'}
 
-btn.addEventListener('click', () => {
-  const d = raccogli();
-  if(!d) return;
-  const url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(messaggio(d));
-  const a = document.createElement('a');
-  a.href = url;
-  a.target = '_blank';
-  a.rel = 'noopener';
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  hint.textContent = 'Si apre WhatsApp con il messaggio già scritto: premi invio per inviarlo.';
-  toast('Si apre WhatsApp: premi invio per completare.');
-});
+ACCETTO:
+${modes.join(', ')||'Da concordare'}
 
-document.getElementById('sendMail').addEventListener('click', () => {
-  const d = raccogli();
-  if(!d) return;
-  window.location.href = 'mailto:' + EMAIL
-    + '?subject=' + encodeURIComponent('Adesione ScambioPro — ' + d.nome)
-    + '&body=' + encodeURIComponent(messaggio(d));
-});
+CONTATTO:
+${v('contact')}`}
 
-document.addEventListener('click', e => {
-  const go = e.target.closest('[data-go]');
-  if(!go) return;
-  document.getElementById(go.dataset.go).scrollIntoView({behavior:'smooth', block:'start'});
-  if(go.dataset.go === 'pubblica') setTimeout(()=> form.elements.nome.focus(), 500);
-});
+form.onsubmit=async e=>{e.preventDefault();if(!form.reportValidity())return;const t=text();success.style.display='block';if(navigator.share){try{await navigator.share({title:'Annuncio ScambioPro',text:t});return}catch(e){}}try{await navigator.clipboard.writeText(t);toast('Annuncio copiato')}catch(e){window.prompt('Copia il tuo annuncio:',t)}};
+document.getElementById('copy').onclick=async()=>{if(!form.reportValidity())return;try{await navigator.clipboard.writeText(text());success.style.display='block';toast('Testo copiato')}catch(e){window.prompt('Copia il tuo annuncio:',text())}};
 </script>
 </body>
 </html>
